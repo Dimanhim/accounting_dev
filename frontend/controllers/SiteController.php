@@ -2,7 +2,11 @@
 
 namespace frontend\controllers;
 
+use common\models\Portfolio;
+use common\models\LandingTariff;
+use frontend\components\Site;
 use frontend\models\ResendVerificationEmailForm;
+use frontend\models\SiteForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
@@ -15,6 +19,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\web\Response;
 
 /**
  * Site controller
@@ -75,7 +80,68 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $site = new Site();
+        $this->view->title = $site->title;
+        $portfolio = Portfolio::findModels()->where(['is_private' => 0, 'type_id' => Portfolio::TYPE_LANDING])->all();
+        $services = LandingTariff::findModels()->all();
+        $model = new SiteForm();
+
+        return $this->render('index', [
+            'site' => $site,
+            'portfolio' => $portfolio,
+            'services' => $services,
+            'model' => $model,
+        ]);
+    }
+
+    public function actionPortfolio()
+    {
+        $this->layout = 'portfolio';
+        $this->view->title = 'Портфолио '.Yii::$app->name;
+        $portfolio = Portfolio::findModels()->all();
+        return $this->render('portfolio', [
+            'portfolio' => $portfolio,
+        ]);
+    }
+
+    public function actionFormValidate()
+    {
+        $response = [
+            'result' => 0,
+            'message' => null,
+        ];
+
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        if(Yii::$app->request->isAjax) {
+            $model = new SiteForm();
+            if($model->load(Yii::$app->request->post())) {
+                if(!$model->validate()) {
+                    $response['message'] = $model->firstError();
+                }
+                else {
+                    $response['result'] = 1;
+                }
+            }
+        }
+        return $response;
+    }
+
+    public function actionSendForm()
+    {
+        $response = [
+            'result' => 0,
+        ];
+
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        if(Yii::$app->request->isAjax) {
+            $model = new SiteForm();
+            if($model->load(Yii::$app->request->post()) and $model->validate() and $model->saveData()) {
+                if ($model->sendAdminEmail()) {
+                    $response['result'] = 1;
+                }
+            }
+        }
+        return $response;
     }
 
     /**
