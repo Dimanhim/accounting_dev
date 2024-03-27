@@ -15,7 +15,7 @@ class AppAsset extends AssetBundle
     public $js = [];
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap5\BootstrapAsset',
+        'yii\bootstrap4\BootstrapAsset',
     ];
 
     public function init()
@@ -27,20 +27,17 @@ class AppAsset extends AssetBundle
     private static function getCss()
     {
         return [
-            'css/libs.min.css',
+            'css/default.css?v='.mt_rand(1000,10000),
             'css/main.css?v='.mt_rand(1000,10000),
-            'css/animate.css',
         ];
     }
     private static function getJs()
     {
         return [
-            'https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js',
-            'https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js',
-            'js/libs.min.js',
+            'js/bootstrap.min.js',
             'js/inputmask.js',
             'js/jquery.inputmask.js',
-            'js/wow.min.js',
+            'js/app.js?v='.mt_rand(1000,10000),
             'js/common.js?v='.mt_rand(1000,10000),
         ];
     }

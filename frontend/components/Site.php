@@ -10,7 +10,7 @@ use yii\base\Component;
 class Site extends Component
 {
     // вспомогательное свойство
-    public $name = 'Создание лендингов под ключ';
+    public $name = 'Тестовый сайт';
     public $h1;
     public $title;
     public $utm_source = '';

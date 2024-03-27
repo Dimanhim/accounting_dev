@@ -82,14 +82,12 @@ class SiteController extends Controller
     {
         $site = new Site();
         $this->view->title = $site->title;
-        $portfolio = Portfolio::findModels()->where(['is_private' => 0, 'type_id' => Portfolio::TYPE_LANDING])->all();
-        $services = LandingTariff::findModels()->all();
         $model = new SiteForm();
+
+
 
         return $this->render('index', [
             'site' => $site,
-            'portfolio' => $portfolio,
-            'services' => $services,
             'model' => $model,
         ]);
     }

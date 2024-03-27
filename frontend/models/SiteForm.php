@@ -26,12 +26,22 @@ class SiteForm extends Model
             ['name', 'string', 'min' => 2, 'tooShort' => 'Слишком короткое поле "Имя"'],
             ['name', 'string', 'max' => 255, 'tooLong' => 'Слишком длинное поле "Имя"'],
             ['phone', 'required', 'message' => 'Поле "Телефон" должно быть заполнено'],
-            ['email', 'required', 'message' => 'Поле "E-mail" должно быть заполнено'],
+            //['email', 'required', 'message' => 'Поле "E-mail" должно быть заполнено'],
             ['email', 'email', 'message' => 'Введите корректный E-mail адрес'],
-            //['email', 'uniqueEmail', 'message' => 'Такой E-mail уже зарегистрирован в системе'],
+            ['phone', 'validatePhone'],
             [['service_id'], 'integer'],
             [['phone', 'email', 'pressed_btn'], 'string', 'message' => 'Недопустимое значение поля'],
             ['utm', 'safe'],
+        ];
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'name' => 'Имя',
+            'phone' => 'Номер телефона',
+            'email' => 'E-mail',
+            'pressed_btn' => 'Нажатая кнопка',
         ];
     }
 
@@ -39,19 +49,22 @@ class SiteForm extends Model
     {
         $model = new Order();
         $model->attributes = $this->attributes;
+        $model->phone = Helpers::phoneFormat($this->phone);
         $model->setUtmLabels($this);
-        if($model->save()) {
-            $this->order = $model;
-            return true;
-        }
-        return false;
+        //return true;
+        return $model->save();
     }
 
-    public function uniqueEmail($attribute, $params)
+    public function validatePhone($attribute, $params)
     {
         if (!$this->hasErrors()) {
-            if (Client::find()->where(['email' => $this->$attribute])->exists()) {
-                $this->addError($attribute, 'Такой E-mail уже зарегистрирован в системе');
+            $phone = Helpers::phoneFormat($this->$attribute);
+            \Yii::$app->infoLog->add('phone', $phone);
+            if(mb_strlen($phone) != 12) {
+                $this->addError($attribute, 'Некорректный номер телефона');
+            }
+            if (Client::find()->where(['phone' => $phone])->exists()) {
+                $this->addError($attribute, 'Пользователь с таким номером телефона уже зарегистрирован в системе');
             }
         }
     }
@@ -73,14 +86,13 @@ class SiteForm extends Model
 
     public function getUtms()
     {
-        $str = '';
+        $utmLabels = [];
         if($params = \Yii::$app->request->get()) {
             foreach($params as $utmLabel => $utmValue) {
-                $str .= $utmLabel.'='.$utmValue.',';
+                $utmLabels[] = $utmLabel.'='.$utmValue;
             }
-            $str = substr($str, 0, -1);
         }
-        return $str;
+        return implode(',', $utmLabels);
     }
 
 }

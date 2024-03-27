@@ -62,9 +62,10 @@ use yii\helpers\Url;
                     ],
 
 
+                    /*
                     ['label' => 'СТАТИСТИКА', 'header' => true],
                     ['label' => 'Level1'],
-                    /*[
+                    [
                         'label' => 'Level1',
                         'items' => [
                             ['label' => 'Level2', 'iconStyle' => 'far'],
@@ -79,7 +80,7 @@ use yii\helpers\Url;
                             ],
                             ['label' => 'Level2', 'iconStyle' => 'far']
                         ]
-                    ],*/
+                    ],
                     ['label' => 'Сплит-шаблон'],
                     ['label' => 'Заполненная форма'],
                     ['label' => 'Переход с сайта'],
@@ -89,6 +90,7 @@ use yii\helpers\Url;
                     ['label' => 'ДОПОЛНИТЕЛЬНЫЕ РАЗДЕЛЫ', 'header' => true],
                     ['label' => 'Бриф', 'url' => ['brief/index'], 'iconStyle' => 'far', 'iconClassAdded' => 'text-danger'],
                     ['label' => 'Реквизиты', 'url' => 'organization/index', 'iconStyle' => 'far', 'iconClassAdded' => 'text-warning'],
+                    */
 
                     //['label' => 'Important', 'iconStyle' => 'far', 'iconClassAdded' => 'text-danger'],
 

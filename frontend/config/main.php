@@ -8,7 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
-    'name' => 'StavTime',
+    'name' => 'Accounting',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
@@ -19,11 +19,11 @@ return [
         ],
     ],
     'components' => [
-        'assetManager' => [
+        /*'assetManager' => [
             'bundles' => [
                 'yii\web\YiiAsset' => false,
             ],
-        ],
+        ],*/
         'request' => [
             'csrfParam' => '_csrf-frontend',
             'baseUrl' => ''

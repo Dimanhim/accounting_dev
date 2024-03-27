@@ -11,17 +11,11 @@ class Helpers
      * @param bool $plus
      * @return mixed|string
      */
-    public static function phoneFormat($phone, $plus = false)
+    public static function phoneFormat($phone, $plus = true)
     {
-        if($phone) {
-            $str = str_replace('-', '', $phone);
-            $str = str_replace('(', '', $str);
-            $str = str_replace(')', '', $str);
-            $str = str_replace('_', '', $str);
-            $str = str_replace(' ', '', $str);
-            return $plus ? "+".$str : $str;
-        }
-        return '';
+        $pattern = '/[^0-9]/';
+        $str = preg_replace($pattern, '', $phone);
+        return ($plus and $phone) ? "+".$str : $str;
     }
 
     public static function setPhoneFormat($phone)

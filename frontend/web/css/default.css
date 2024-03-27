@@ -1,0 +1,57 @@
+/*
+BEGIN PRELOADER
+*/
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #774d93;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: spin 1s linear infinite; /* Safari */
+    animation: spin 1s linear infinite;
+}
+.loader-block {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    z-index: 999;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0.5;
+}
+/*#question-3 .result2__item-info {
+    font-size: 18px;
+}*/
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/*
+END PRELOADER
+*/
+.help-block {
+    color: red;
+}
+.info-message {
+    display: none;
+    color: #28a745;
+    height: 20px;
+    margin-bottom: 0;
+}
+.info-message.error {
+    color: #dc3545;
+}
+div.required label.form-label:after,
+div.required label.control-label:after {
+    content: " *";
+    color: red;
+}

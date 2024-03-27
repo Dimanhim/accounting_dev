@@ -2,20 +2,22 @@
 
 namespace frontend\controllers;
 
-use common\models\Portfolio;
-use frontend\components\PortfolioFilter;
 use Yii;
+use frontend\models\SiteForm;
 use yii\filters\ContentNegotiator;
-use yii\filters\Cors;
-use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\Response;
-use backend\models\PortfolioSearch;
+use yii\widgets\ActiveForm;
 
 class AjaxController extends Controller
 {
-    public $result = ['result' => 0, 'message' => null, 'html' => null];
-    public $errors = [];
+
+    public $_errors = [];
+    public $_data = [
+        'error' => 0,
+        'message' => null,
+        'data' => [],
+    ];
 
     /**
      * @return array
@@ -31,63 +33,90 @@ class AjaxController extends Controller
         ];
     }
 
-    public function beforeAction($action)
+    /**
+     * @return mixed
+     */
+    public function actionValidateForm()
     {
-        $avaliables = ['change-filter'];
-        if(in_array($action->id, $avaliables)) {
-            $this->enableCsrfValidation = false;
-        }
-        return parent::beforeAction($action);
-    }
+        $model = new SiteForm();
 
-
-    public function actionChangeFilter()
-    {
-        if(Yii::$app->request->isAjax) {
-            $requestParams = self::requestParams(Yii::$app->request->post('data'));
-            $type = Yii::$app->request->post('type') ? Portfolio::PRIVATE_PARAM : null;
-            $searchModel = new PortfolioSearch(['type' => $type]);
-            $filterItems = $searchModel->filterItems($requestParams);
-            $html = $this->renderPartial('//portfolio/_filter', [
-                'searchModel' => $searchModel,
-                'dataProvider' => $filterItems->dataProvider,
-                'requestParams' => $requestParams,
-                'type' => $type,
-            ]);
-            if($html) {
-                $this->result['html'] = $html;
+        if(Yii::$app->request->isAjax and $model->load(Yii::$app->request->post())) {
+            if(!$model->validate()) {
+                //$this->_addError('Ошибка валидации формы');
+                $this->_addModelFirstError($model);
             }
         }
-        return $this->responseAjax();
+
+        return $this->response();
+    }
+
+    public function actionSubmitForm()
+    {
+        $model = new SiteForm();
+
+        if(Yii::$app->request->isAjax and $model->load(Yii::$app->request->post())) {
+            if($model->validate()) {
+                // разобраться зачем в модель сохраняется order и функция уникального емейла нужна ли
+                if(!$model->saveData()) {
+                    $this->_addError('Ошибка сохранения формы');
+                }
+            }
+        }
+
+        return $this->response();
     }
 
 
 
-    public static function requestParams($postData = null)
+
+
+
+
+
+    public function _addModelFirstError($model)
     {
-        $data = [];
-        if($postData) {
-            foreach($postData as $requestParam) {
-                if($requestParam) {
-                    foreach($requestParam as $paramName => $paramValue) {
-                        $data[$paramName][] = $paramValue;
+        if($modelErrors = $model->errors) {
+            foreach ($modelErrors as $modelAttributeName => $modelAttributeErrors) {
+                if($modelAttributeErrors) {
+                    foreach($modelAttributeErrors as $modelAttributeError) {
+                        $this->_addError($modelAttributeError);
+                        break;
                     }
                 }
             }
         }
-        return $data;
     }
 
-    public function responseAjax()
+    protected function _hasErrors()
     {
-        if(!$this->errors and $this->result['html']) {
-            $this->result['result'] = 1;
+        return !empty($this->_errors);
+    }
+
+    protected function _addError($message)
+    {
+        if($message) {
+            $this->_errors[] = $message;
+        }
+    }
+
+    protected function _errorSummary()
+    {
+        if($this->_errors) return implode(' ', $this->_errors);
+        return false;
+    }
+
+    private function response($data = [])
+    {
+        if(!$this->_hasErrors()) {
+            $this->_data['data'] = $data;
         }
         else {
-            $this->result['message'] = 'Произоша ошибка';
-            $this->result['html'] = null;
+            $this->_data['error'] = 1;
+            $this->_data['message'] = $this->_errorSummary();
         }
-        return $this->result;
+
+        $this->response->data = $this->_data;
+        return $this->response->data;
     }
 
 
