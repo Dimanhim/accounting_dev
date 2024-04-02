@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use Faker\Provider\Base;
 use Yii;
 
 /**
@@ -33,15 +34,20 @@ use Yii;
  * @property int|null $created_at
  * @property int|null $updated_at
  */
-class Organization extends \common\models\BaseModel
+class Organization extends BaseModel
 {
+
+    public function init()
+    {
+        return parent::init();
+    }
 
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return '{{%organization}}';
+        return '{{%organizations}}';
     }
 
     /**
@@ -49,7 +55,7 @@ class Organization extends \common\models\BaseModel
      */
     public static function modelName()
     {
-        return 'Реквизиты организации';
+        return 'Организации';
     }
 
     /**
@@ -66,6 +72,7 @@ class Organization extends \common\models\BaseModel
     public function rules()
     {
         return array_merge(parent::rules(), [
+            [['client_id'], 'integer'],
             [['name', 'organization_name', 'position_name', 'action_basis', 'person_name', 'short_person_name', 'phone', 'email', 'legal_address', 'actual_address', 'inn', 'kpp', 'okpo', 'ogrn', 'rs', 'kors', 'bik', 'bank_name'], 'string', 'max' => 255],
         ]);
     }
@@ -76,6 +83,7 @@ class Organization extends \common\models\BaseModel
     public function attributeLabels()
     {
         return array_merge(parent::attributeLabels(), [
+            'client_id' => 'Клиент',
             'name' => 'Название',
             'organization_name' => 'Организация',
             'position_name' => 'Должность',

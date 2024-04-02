@@ -16,23 +16,31 @@ use frontend\modules\profile\models\Profile;
             <a href="/profile" class="nav-link">Инструкция</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="<?= Url::to(['order/index']) ?>" class="nav-link">Мои заявки</a>
+            <a href="<?= Url::to(['organization/index']) ?>" class="nav-link">Организации</a>
         </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="<?= Url::to(['store/index']) ?>" class="nav-link">Магазины</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="<?= Url::to(['product/index']) ?>" class="nav-link">Товары</a>
+        </li>
+        <!--
         <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Меню...</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                <li><a href="<?= Url::to(['/profile/brief']) ?>" class="dropdown-item">Бриф</a></li>
+                <li><a href="<?//= Url::to(['/profile/brief']) ?>" class="dropdown-item">Бриф</a></li>
 
                 <li class="dropdown-divider"></li>
 
-                <!-- Level two dropdown-->
-                <?= Profile::getNavbarSteps() ?>
-                <?= Profile::getNavbarDocuments() ?>
-                <?= Profile::getNavbarPayments() ?>
 
-                <!-- End Level two -->
+                <?//= Profile::getNavbarSteps() ?>
+                <?//= Profile::getNavbarDocuments() ?>
+                <?//= Profile::getNavbarPayments() ?>
+
+
             </ul>
         </li>
+        -->
     </ul>
     <ul class="navbar-nav ml-auto">
         <li>

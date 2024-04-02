@@ -5,26 +5,27 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "stv_portfolio_services".
+ * This is the model class for table "acc_stores".
  *
  * @property int $id
  * @property string $unique_id
- * @property string|null $portfolio_id
- * @property int|null $service_id
+ * @property string $name
+ * @property int $client_id
+ * @property string|null $comment
  * @property int|null $is_active
  * @property int|null $deleted
  * @property int|null $position
  * @property int|null $created_at
  * @property int|null $updated_at
  */
-class PortfolioService extends \common\models\BaseModel
+class Store extends BaseModel
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return '{{%portfolio_services}}';
+        return '{{%stores}}';
     }
 
     /**
@@ -32,7 +33,7 @@ class PortfolioService extends \common\models\BaseModel
      */
     public static function modelName()
     {
-        return 'Услуги';
+        return 'Магазины';
     }
 
     /**
@@ -40,7 +41,7 @@ class PortfolioService extends \common\models\BaseModel
      */
     public static function typeId()
     {
-        return Gallery::TYPE_ANY;
+        return Gallery::TYPE_STORE;
     }
 
     /**
@@ -49,7 +50,10 @@ class PortfolioService extends \common\models\BaseModel
     public function rules()
     {
         return array_merge(parent::rules(), [
-            [['service_id', 'portfolio_id'], 'integer'],
+            [['name', 'client_id'], 'required'],
+            [['client_id'], 'integer'],
+            [['comment'], 'string'],
+            [['name'], 'string', 'max' => 255],
         ]);
     }
 
@@ -59,18 +63,9 @@ class PortfolioService extends \common\models\BaseModel
     public function attributeLabels()
     {
         return array_merge(parent::attributeLabels(), [
-            'portfolio_id' => 'Portfolio ID',
-            'service_id' => 'Service ID',
+            'name' => 'Название',
+            'client_id' => 'Клиент',
+            'comment' => 'Описание',
         ]);
-    }
-
-    public function getPortfolio()
-    {
-        return $this->hasOne(Portfolio::className(), ['id' => 'portfolio_id']);
-    }
-
-    public function getService()
-    {
-        return $this->hasOne(Service::className(), ['id' => 'service_id']);
     }
 }

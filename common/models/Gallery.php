@@ -25,20 +25,14 @@ class Gallery extends \common\models\BaseModel
     const TYPE_ORDER          = 1;
     const TYPE_IMAGE          = 2;
     const TYPE_CLIENT         = 3;
-    const TYPE_PORTFOLIO      = 4;
-    const TYPE_LANDING_TARIFF = 5;
+    const TYPE_STORE          = 4;
     const TYPE_NOTIFICATION   = 6;
-    const TYPE_BRIEF          = 7;
     const TYPE_DOCUMENT       = 8;
     const TYPE_CLIENT_INFO    = 9;
     const TYPE_ORGANIZATION   = 10;
     const TYPE_PAYMENT        = 11;
-    const TYPE_STEP           = 12;
-    const TYPE_BRIEF_CLIENT   = 13;
     const TYPE_OFFICE         = 14;
     const TYPE_ANY            = 15;
-    const TYPE_SERVICE        = 16;
-    const TYPE_TAG            = 17;
 
     /**
      * {@inheritdoc}
@@ -99,16 +93,12 @@ class Gallery extends \common\models\BaseModel
             self::TYPE_ORDER               => 'Заявки',
             self::TYPE_IMAGE               => 'Изображения',
             self::TYPE_CLIENT              => 'Клиенты',
-            self::TYPE_PORTFOLIO           => 'Портфолио',
-            self::TYPE_SERVICE             => 'Услуги',
+            self::TYPE_STORE               => 'Магазины',
             self::TYPE_NOTIFICATION        => 'Уведомления',
-            self::TYPE_BRIEF               => 'Бриф',
             self::TYPE_DOCUMENT            => 'Документы',
             self::TYPE_CLIENT_INFO         => 'Реквизиты клиентов',
             self::TYPE_ORGANIZATION        => 'Реквизиты организации',
             self::TYPE_PAYMENT             => 'Оплаты',
-            self::TYPE_STEP                => 'Этапы работы',
-            self::TYPE_BRIEF_CLIENT        => 'Бриф клиента',
             self::TYPE_OFFICE              => 'Делопроизводство',
         ];
     }

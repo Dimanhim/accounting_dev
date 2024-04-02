@@ -65,6 +65,9 @@ return [
         'mailSender' => [
             'class' => 'backend\components\MailSender',
         ],
+        'app' => [
+            'class' => 'common\components\AppComponent',
+        ],
         /*'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'viewPath' => '@common/mail',

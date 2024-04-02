@@ -12,6 +12,19 @@ class Profile
         return Yii::$app->user->identity->id ? Order::findModels()->andWhere(['client_id' => Yii::$app->user->identity->id])->all() : [];
     }
 
+    // сделать магазины
+    public function getSidebarStores()
+    {
+        $data = [
+            'label' => 'Мои магазины',
+            'icon' => 'address-book',
+            'badge' => '<span class="right badge badge-info">'.Yii::$app->params['orders_count'].'</span>',
+            'url' => ['store/index'],
+        ];
+
+        return $data;
+    }
+
     public function getSidebarOrders()
     {
         $data = [

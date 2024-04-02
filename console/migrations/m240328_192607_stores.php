@@ -4,25 +4,22 @@ use yii\db\Migration;
 use yii\db\Schema;
 
 /**
- * Class m230702_185334_steps
+ * Class m240328_192607_stores
  */
-class m230702_185334_steps extends Migration
+class m240328_192607_stores extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
-        $this->createTable('{{%steps}}', [
+        $this->createTable('{{%stores}}', [
             'id'                    => Schema::TYPE_PK,
             'unique_id'             => Schema::TYPE_STRING . ' NOT NULL',
 
-            'order_id'              => Schema::TYPE_INTEGER,
-            'name'                  => Schema::TYPE_STRING,
-            'short_description'     => Schema::TYPE_TEXT,
-            'description'           => Schema::TYPE_TEXT,
-            'done'                  => Schema::TYPE_SMALLINT . ' DEFAULT 0',
-            'deadline'              => Schema::TYPE_INTEGER,
+            'name'                  => Schema::TYPE_STRING . ' NOT NULL',
+            'client_id'             => Schema::TYPE_INTEGER . ' NOT NULL',
+            'comment'               => Schema::TYPE_TEXT,
 
             'is_active'             => Schema::TYPE_SMALLINT . ' DEFAULT 1',
             'deleted'               => Schema::TYPE_SMALLINT,
@@ -37,6 +34,6 @@ class m230702_185334_steps extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%steps}}');
+        $this->dropTable('{{%stores}}');
     }
 }

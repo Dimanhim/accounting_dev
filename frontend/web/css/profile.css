@@ -1,0 +1,132 @@
+.select-style {
+    background: #fff;
+    padding: 5px 20px;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 0.25rem;
+}
+.table.table-brief-form th:first-child,
+.table.table-brief-form td:first-child
+{
+    width: 40%;
+}
+.step-done, .step-done a {
+    background: #6a6969;
+    color: #c2c7d0 !important;
+}
+#changeorderform-order_id {
+    margin-left: 20px;
+}
+.image-preview {
+    padding: 5px;
+    text-align: center;
+}
+.image-preview-container {
+    display: flex;
+}
+.image-preview .delete-image {
+    margin-top: 10px;
+}
+.image-preview .image-preview-content {
+    padding-top: 5px;
+    border: 1px solid #ddd;
+}
+.image-preview:first-child .image-preview-content {
+    border: 2px solid #eee;
+    box-shadow: 1px 1px 3px #198754, -1px -1px 3px #198754;
+}
+
+
+
+
+/* BTNS */
+.btn-primary {
+    color: #007bff !important;
+}
+.btn-success {
+    color: #28a745 !important;
+}
+.btn-warning {
+    color: #ffc107 !important;
+}
+.btn-danger {
+    color: #dc3545 !important;
+}
+.btn-primary,
+.btn-default,
+.btn-success,
+.btn-warning,
+.btn-danger
+{
+    background-color: transparent !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
+.btn-primary:hover,
+.btn-default:hover,
+.btn-success:hover,
+.btn-warning:hover,
+.btn-danger:hover
+{
+    background-color: #000 !important;
+    border-color: #000 !important;
+    color: #fff !important;
+}
+/* END BTNS*/
+
+[class*="sidebar-dark-"] .sidebar span {
+    color: #c2c7d0;
+}
+[class*="sidebar-dark-"] .sidebar span:focus, [class*="sidebar-dark-"] .sidebar span:hover {
+    text-decoration: none;
+}
+[class*="sidebar-dark-"] .user-panel span:hover {
+    color: #fff;
+}
+
+span.badge-warning {
+    color: #1f2d3d !important;
+}
+.nav-item {
+    position: relative;
+}
+.action-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* INDEX INSTRUCTION */
+.profile-main img {
+    width: 300px;
+    border: 1px solid #ddd;
+    margin: 20px;
+}
+.profile-annotation {
+    font-style: italic;
+    font-size: 0.8rem;
+}
+.profile-separator {
+    height: 1px;
+    background: #ddd;
+}
+.card--o .card-body-o {
+    display: none;
+}
+.card-o .card-body-o {
+    display: none;
+}
+.download-img-btn {
+    margin-top: 10px;
+}
+.brief-head {
+    background: #ccc;
+}
+.brief-head td {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* TREE-WIDGET */
+

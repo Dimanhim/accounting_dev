@@ -6,6 +6,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\modules\profile\controllers\ProfileController;
 use frontend\modules\profile\models\ChangeOrderForm;
 use frontend\modules\profile\models\ProfileLoginForm;
+use frontend\modules\profile\models\StartForm;
 use frontend\modules\profile\Profile;
 use Yii;
 use common\models\Client;
@@ -30,7 +31,7 @@ class DefaultController extends ProfileController
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->render('tree');
     }
 
     public function actionLogin($user_id = null, $action_id = null)
@@ -54,6 +55,23 @@ class DefaultController extends ProfileController
         }
         $model->password = '';
         return $this->render('login', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionStart()
+    {
+        $this->layout = 'blank';
+
+        $model = new StartForm();
+
+        if($model->load(Yii::$app->request->post()) and $model->validate()) {
+            if($model->saveData()) {
+                return $this->redirect(['index']);
+            }
+        }
+
+        return $this->render('start', [
             'model' => $model,
         ]);
     }

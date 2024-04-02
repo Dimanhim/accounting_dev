@@ -106,6 +106,7 @@ class ClientController extends BaseController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->managerSeen();
         $info = $model->infoInstance;
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {

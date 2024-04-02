@@ -7,3 +7,7 @@ frontend/views/layouts/main.php - прописать render _form
 
 
 
+store_requizites
+goods
+goods_tags
+
