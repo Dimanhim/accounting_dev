@@ -33,10 +33,17 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'name',
             'organization_name',
-            'position_name',
-            'legal_address',
+            [
+                'attribute' => '_actual_address',
+                'value' => function($data) {
+                    if($data->requisites) {
+                        return $data->requisites->actual_address;
+                    }
+                }
+            ],
             [
                 'class' => ActionColumn::className(),
+                'template' => '{update} {delete}',
                 'urlCreator' => function ($action, Organization $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }

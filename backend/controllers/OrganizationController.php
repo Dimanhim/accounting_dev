@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use common\models\Organization;
 use backend\models\OrganizationSearch;
+use common\models\OrganizationRequisite;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -69,9 +70,17 @@ class OrganizationController extends BaseController
     public function actionCreate()
     {
         $model = new Organization();
+        $requisites = new OrganizationRequisite();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
+            if ($model->load($this->request->post()) and $requisites->load($this->request->post())) {
+                if($model->save()) {
+                    $requisites->organization_id = $model->id;
+                    if($requisites->save()) {
+
+                    }
+                }
+
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
@@ -80,6 +89,7 @@ class OrganizationController extends BaseController
 
         return $this->render('create', [
             'model' => $model,
+            'requisites' => $requisites
         ]);
     }
 
@@ -93,13 +103,19 @@ class OrganizationController extends BaseController
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $requisites = $model->_requisites ?? new OrganizationRequisite();
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($this->request->isPost && $model->load($this->request->post()) && $requisites->load($this->request->post())) {
+            $model->_requisites = $requisites;
+            if($model->save()) {
+                return $this->redirect(['index']);
+            }
+
         }
 
         return $this->render('update', [
             'model' => $model,
+            'requisites' => $requisites
         ]);
     }
 }

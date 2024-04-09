@@ -17,9 +17,11 @@ class m240328_192607_stores extends Migration
             'id'                    => Schema::TYPE_PK,
             'unique_id'             => Schema::TYPE_STRING . ' NOT NULL',
 
+            'organization_id'       => Schema::TYPE_INTEGER . ' NOT NULL',
             'name'                  => Schema::TYPE_STRING . ' NOT NULL',
-            'client_id'             => Schema::TYPE_INTEGER . ' NOT NULL',
-            'comment'               => Schema::TYPE_TEXT,
+            'description'           => Schema::TYPE_TEXT,
+            'short_description'     => Schema::TYPE_TEXT,
+            'address'               => Schema::TYPE_TEXT,
 
             'is_active'             => Schema::TYPE_SMALLINT . ' DEFAULT 1',
             'deleted'               => Schema::TYPE_SMALLINT,

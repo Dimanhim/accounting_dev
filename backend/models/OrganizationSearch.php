@@ -17,7 +17,7 @@ class OrganizationSearch extends Organization
     public function rules()
     {
         return [
-            [['id', 'is_active', 'deleted', 'position', 'created_at', 'updated_at','unique_id', 'name', 'organization_name', 'position_name', 'action_basis', 'person_name', 'short_person_name', 'phone', 'email', 'legal_address', 'actual_address', 'inn', 'kpp', 'okpo', 'ogrn', 'rs', 'kors', 'bik', 'bank_name'], 'safe'],
+            [['id', 'is_active', 'deleted', 'position', 'created_at', 'updated_at','unique_id', 'name', 'organization_name', 'position_name', 'action_basis', 'person_name', 'short_person_name', 'phone', 'email', 'legal_address', 'actual_address', 'inn', 'kpp', 'okpo', 'ogrn', 'rs', 'kors', 'bik', 'bank_name', '_actual_address'], 'safe'],
         ];
     }
 
@@ -39,7 +39,7 @@ class OrganizationSearch extends Organization
      */
     public function search($params)
     {
-        $query = Organization::findModels();
+        $query = Organization::findModels(false, new Organization());
 
         // add conditions that should always apply here
 
@@ -49,40 +49,32 @@ class OrganizationSearch extends Organization
 
         $this->load($params);
 
+        $tableName = \Yii::$app->db->tablePrefix . 'organizations';
+
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
             // $query->where('0=1');
             return $dataProvider;
         }
 
+        if($this->_actual_address) {
+            $query->joinWith(['requisites']);
+            $query->andFilterWhere(['like', \Yii::$app->db->tablePrefix . 'organization_requisites.actual_address', $this->_actual_address]);
+
+        }
+
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
-            'is_active' => $this->is_active,
-            'deleted' => $this->deleted,
-            'position' => $this->position,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            $tableName.'.id' => $this->id,
+            $tableName.'.is_active' => $this->is_active,
+            $tableName.'.deleted' => $this->deleted,
+            $tableName.'.position' => $this->position,
+            $tableName.'.created_at' => $this->created_at,
+            $tableName.'.updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'organization_name', $this->organization_name])
-            ->andFilterWhere(['like', 'position_name', $this->position_name])
-            ->andFilterWhere(['like', 'action_basis', $this->action_basis])
-            ->andFilterWhere(['like', 'person_name', $this->person_name])
-            ->andFilterWhere(['like', 'short_person_name', $this->short_person_name])
-            ->andFilterWhere(['like', 'phone', $this->phone])
-            ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'legal_address', $this->legal_address])
-            ->andFilterWhere(['like', 'actual_address', $this->actual_address])
-            ->andFilterWhere(['like', 'inn', $this->inn])
-            ->andFilterWhere(['like', 'kpp', $this->kpp])
-            ->andFilterWhere(['like', 'okpo', $this->okpo])
-            ->andFilterWhere(['like', 'ogrn', $this->ogrn])
-            ->andFilterWhere(['like', 'rs', $this->rs])
-            ->andFilterWhere(['like', 'kors', $this->kors])
-            ->andFilterWhere(['like', 'bik', $this->bik])
-            ->andFilterWhere(['like', 'bank_name', $this->bank_name]);
+        $query->andFilterWhere(['like', $tableName.'.name', $this->name])
+            ->andFilterWhere(['like', $tableName.'.organization_name', $this->organization_name]);
 
         return $dataProvider;
     }

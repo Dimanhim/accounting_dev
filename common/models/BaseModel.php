@@ -30,6 +30,9 @@ class BaseModel extends ActiveRecord
     //public $image_fields = ['image_field' => 'image_id'];
     public $image_fields;
     public $image_preview_field = [];
+    protected $_general_attributes = [
+        'id', 'unique_id', 'is_active', 'deleted', 'position', 'created_at', 'updated_at'
+    ];
 
     /**
      * @return array
@@ -87,8 +90,8 @@ class BaseModel extends ActiveRecord
         return [
             'id' => 'ID',
             'unique_id' => 'Уникальный ID',
-            'image_field' => 'Документ',
-            'image_fields' => 'Документ',
+            'image_field' => 'Изображение',
+            'image_fields' => 'Изображение',
             'image_preview_field' => 'Превью изображения',
             'is_active' => 'Активность',
             'deleted' => 'Удален',
@@ -157,17 +160,30 @@ class BaseModel extends ActiveRecord
         return '/images'.$dirName.'/'.$path;
     }
 
+    public static function fullTableName($model)
+    {
+        return str_replace(
+            ['%', '{', '}'],
+            [Yii::$app->db->tablePrefix, '', ''],
+            $model::tableName()
+        );
+    }
+
     /**
      * @return mixed
      */
-    public static function findModels($admin = false)
+    public static function findModels($admin = false, $model = null)
     {
+        $tableName = '';
+        if($model) {
+            $tableName = self::fullTableName($model).'.';
+        }
 
         return $admin
             ?
-            self::className()::find()->where(['is', 'deleted', null])->orderBy(['position' => 'SORT ASC'])
+            self::className()::find()->where(['is', $tableName.'deleted', null])->orderBy([$tableName.'position' => 'SORT ASC'])
             :
-            self::className()::find()->where(['is', 'deleted', null])->andWhere(['is_active' => 1])->orderBy(['position' => 'SORT ASC']);
+            self::className()::find()->where(['is', $tableName.'deleted', null])->andWhere([$tableName.'is_active' => 1])->orderBy([$tableName.'position' => 'SORT ASC']);
     }
 
     /**
@@ -356,11 +372,12 @@ class BaseModel extends ActiveRecord
         return date('d.m.Y H:i', $this->updated_at);
     }
 
-    public function getImagesField($form)
+    public function getImagesField($form, $rows = null)
     {
         return Yii::$app->controller->renderPartial('//chunks/_images_form_field', [
             'form' => $form,
             'model' => $this,
+            'rows' => $rows,
         ]);
     }
 
@@ -385,6 +402,23 @@ class BaseModel extends ActiveRecord
         if($user_id) $data['user_id'] = $user_id;
         return $data;
     }
+
+    protected function updateMainAttributes($model)
+    {
+        $attributes = [];
+        if($model->attributes) {
+            foreach ($model->attributes as $attributeName => $attributeValue) {
+                if(!in_array($attributeName, $this->_general_attributes)) {
+                    $attributes[$attributeName] = $attributeValue;
+                }
+            }
+        }
+        $model->attributes = $attributes;
+        return $model->save();
+    }
+
+
+
 
 
 }

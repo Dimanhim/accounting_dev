@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\models\traits\OrganizationTrait;
 use Faker\Provider\Base;
 use Yii;
 
@@ -36,11 +37,10 @@ use Yii;
  */
 class Organization extends BaseModel
 {
+    use OrganizationTrait;
 
-    public function init()
-    {
-        return parent::init();
-    }
+    public $_requisites;
+    public $_actual_address;
 
     /**
      * {@inheritdoc}
@@ -72,8 +72,10 @@ class Organization extends BaseModel
     public function rules()
     {
         return array_merge(parent::rules(), [
+            [['name', 'organization_name'], 'required'],
             [['client_id'], 'integer'],
-            [['name', 'organization_name', 'position_name', 'action_basis', 'person_name', 'short_person_name', 'phone', 'email', 'legal_address', 'actual_address', 'inn', 'kpp', 'okpo', 'ogrn', 'rs', 'kors', 'bik', 'bank_name'], 'string', 'max' => 255],
+            [['name', 'organization_name'], 'string', 'max' => 255],
+            [['_actual_address'], 'safe'],
         ]);
     }
 
@@ -82,26 +84,52 @@ class Organization extends BaseModel
      */
     public function attributeLabels()
     {
+        // как то с этим надо разобраться, чтобы свойства реквизитов прокинулись в модель
         return array_merge(parent::attributeLabels(), [
             'client_id' => 'Клиент',
             'name' => 'Название',
             'organization_name' => 'Организация',
-            'position_name' => 'Должность',
-            'action_basis' => 'На основании чего',
-            'person_name' => 'ФИО уполномоченного полностью',
-            'short_person_name' => 'ФИО уполномоченного',
-            'phone' => 'Телефон',
-            'email' => 'E-mail',
-            'legal_address' => 'Юридический адрес',
-            'actual_address' => 'Фактический адрес',
-            'inn' => 'ИНН',
-            'kpp' => 'КПП',
-            'okpo' => 'ОКПО',
-            'ogrn' => 'ОГРН',
-            'rs' => 'Р/С',
-            'kors' => 'Кор/сч',
-            'bik' => 'БИК',
-            'bank_name' => 'Банк',
+            '_actual_address' => 'Адрес'
         ]);
     }
+
+    /*public function attributes()
+    {
+        return array_merge(parent::attributes(), [
+            'action_basis' => 'На основании чего',
+        ]);
+    }*/
+
+    /**
+     *
+     */
+    public function afterFind()
+    {
+        $this->_requisites = $this->requisites;
+        return parent::afterFind();
+    }
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        $this->handleRequisites();
+        return parent::afterSave($insert, $changedAttributes);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getRequisites()
+    {
+        return $this->hasOne(OrganizationRequisite::className(), ['organization_id' => 'id']);
+    }
+
+    /*public static function findModels($admin = false)
+    {
+        $tableName = \Yii::$app->db->tablePrefix . 'organizations';
+        return $admin
+            ?
+            self::className()::find()->where(['is', $tableName . '.deleted', null])->orderBy([$tableName . '.position' => 'SORT ASC'])
+            :
+            self::className()::find()->where(['is', $tableName . '.deleted', null])->andWhere([$tableName . '.is_active' => 1])->orderBy([$tableName . '.position' => 'SORT ASC']);
+    }*/
 }

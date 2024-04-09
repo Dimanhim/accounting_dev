@@ -34,6 +34,8 @@ AppAsset::register($this);
 <body class="hold-transition sidebar-mini">
 <?php $this->beginBody() ?>
 
+<div class="loader-block"></div>
+
 <div class="wrapper">
     <!-- Navbar -->
     <?= $this->render('navbar', ['assetDir' => $assetDir]) ?>

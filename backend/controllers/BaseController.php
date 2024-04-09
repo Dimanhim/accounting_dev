@@ -88,16 +88,6 @@ class BaseController extends Controller
                         Yii::$app->params['avatarPath'] = EasyThumbnailImage:: thumbnailFileUrl(Yii::getAlias('@upload').$client->mainImage->path, 160, 160, EasyThumbnailImage::THUMBNAIL_OUTBOUND);
                     }
                 }
-                Yii::$app->params['brief'] = 0;
-                $countBriefs = Brief::findModels()->count();
-                $countOrderBriefs = BriefOrder::findModels()->where(['order_id' => Yii::$app->params['order_id']])->andWhere(['not', ['value' => '']])->count();
-                if($countOrderBriefs && $countBriefs > $countOrderBriefs) {
-                    Yii::$app->params['brief'] = 1;
-                }
-                elseif($countBriefs == $countOrderBriefs) {
-                    Yii::$app->params['brief'] = 2;
-                }
-
             }
         }
     }

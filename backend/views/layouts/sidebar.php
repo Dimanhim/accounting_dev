@@ -60,6 +60,51 @@ use yii\helpers\Url;
                             ['label' => 'Добавить', 'url' => ['client/create'], 'iconStyle' => 'far'],
                         ]
                     ],
+                    [
+                        'label' => 'Организации',
+                        'icon' => 'user',
+                        //'badge' => '<span class="right badge badge-info">2</span>',
+                        'items' => [
+                            ['label' => 'Список', 'url' => ['organization/index'], 'iconStyle' => 'far'],
+                            ['label' => 'Добавить', 'url' => ['organization/create'], 'iconStyle' => 'far'],
+                        ]
+                    ],
+                    [
+                        'label' => 'Магазины',
+                        'icon' => 'shopping-bag',
+                        //'badge' => '<span class="right badge badge-info">2</span>',
+                        'items' => [
+                            ['label' => 'Список', 'url' => ['store/index'], 'iconStyle' => 'far'],
+                            ['label' => 'Добавить', 'url' => ['store/create'], 'iconStyle' => 'far'],
+                        ]
+                    ],
+                    [
+                        'label' => 'Категории товаров',
+                        'icon' => 'filter',
+                        //'badge' => '<span class="right badge badge-info">2</span>',
+                        'items' => [
+                            ['label' => 'Список', 'url' => ['category/index'], 'iconStyle' => 'far'],
+                            ['label' => 'Добавить', 'url' => ['category/create'], 'iconStyle' => 'far'],
+                        ]
+                    ],
+                    [
+                        'label' => 'Товары',
+                        'icon' => 'cart-plus',
+                        //'badge' => '<span class="right badge badge-info">2</span>',
+                        'items' => [
+                            ['label' => 'Список', 'url' => ['product/index'], 'iconStyle' => 'far'],
+                            ['label' => 'Добавить', 'url' => ['product/create'], 'iconStyle' => 'far'],
+                        ]
+                    ],
+                    [
+                        'label' => 'Хар-ки товаров',
+                        'icon' => 'cart-plus',
+                        //'badge' => '<span class="right badge badge-info">2</span>',
+                        'items' => [
+                            ['label' => 'Список', 'url' => ['product/index'], 'iconStyle' => 'far'],
+                            ['label' => 'Добавить', 'url' => ['product/create'], 'iconStyle' => 'far'],
+                        ]
+                    ],
 
 
                     /*

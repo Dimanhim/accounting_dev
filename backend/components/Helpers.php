@@ -52,6 +52,7 @@ class Helpers
                 'multiple' => true
             ],
             'pluginOptions' => [
+                'language' => 'ru',
                 'browseLabel' => 'Выбрать',
                 //'showPreview' => false,
                 //'showUpload' => false,

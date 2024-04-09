@@ -9,9 +9,11 @@ use Yii;
  *
  * @property int $id
  * @property string $unique_id
+ * @property int $organization_id
  * @property string $name
- * @property int $client_id
- * @property string|null $comment
+ * @property string|null $description
+ * @property string|null $short_description
+ * @property string|null $address
  * @property int|null $is_active
  * @property int|null $deleted
  * @property int|null $position
@@ -50,9 +52,9 @@ class Store extends BaseModel
     public function rules()
     {
         return array_merge(parent::rules(), [
-            [['name', 'client_id'], 'required'],
-            [['client_id'], 'integer'],
-            [['comment'], 'string'],
+            [['organization_id', 'name'], 'required'],
+            [['organization_id'], 'integer'],
+            [['description', 'short_description', 'address'], 'string'],
             [['name'], 'string', 'max' => 255],
         ]);
     }
@@ -63,9 +65,11 @@ class Store extends BaseModel
     public function attributeLabels()
     {
         return array_merge(parent::attributeLabels(), [
+            'organization_id' => 'Организация',
             'name' => 'Название',
-            'client_id' => 'Клиент',
-            'comment' => 'Описание',
+            'description' => 'Описание',
+            'short_description' => 'Краткое описание',
+            'address' => 'Адрес',
         ]);
     }
 }
