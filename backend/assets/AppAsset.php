@@ -37,6 +37,7 @@ class AppAsset extends AssetBundle
             'css/jquery-ui.min.css',
             'css/chosen.css',
             'css/jquery.fancybox.min.css',
+            'css/toastr.min.css',
             'css/site.css?v='.mt_rand(1000,10000),
         ];
     }
@@ -54,6 +55,7 @@ class AppAsset extends AssetBundle
             'js/slugify.js',
             'js/inputmask.js',
             'js/jquery.inputmask.js',
+            'js/toastr.min.js',
             'js/functions.js?v='.mt_rand(1000,10000),
             'js/common.js?v='.mt_rand(1000,10000),
         ];

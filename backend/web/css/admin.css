@@ -66,6 +66,52 @@
     background: #e9ecef;
 }
 /* PAGINATION */
+
+/* BTNS */
+.btn-primary {
+    color: #007bff !important;
+}
+.btn-success {
+    color: #28a745 !important;
+}
+.btn-warning {
+    color: #ffc107 !important;
+}
+.btn-danger {
+    color: #dc3545 !important;
+}
+.btn-secondary {
+    color: #6c757d;
+}
+.btn-primary,
+.btn-default,
+.btn-success,
+.btn-warning,
+.btn-danger,
+.btn-secondary
+{
+    background-color: transparent !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
+.btn-primary:hover,
+.btn-default:hover,
+.btn-success:hover,
+.btn-warning:hover,
+.btn-danger:hover,
+.btn-secondary:hover
+{
+    background-color: #000 !important;
+    border-color: #000 !important;
+    color: #fff !important;
+}
+.btn-disabled {
+    opacity: 0.3;
+}
+/* END BTNS*/
+
+
 .kv-editor-container {
     height: 100% !important;
 }
@@ -82,3 +128,17 @@ div.required label.control-label:after {
     background-color: rgba(255,255,255,.1);
     color: #c2c7d0;
 }
+
+/* Contacts */
+.contacts-table th {
+    vertical-align: top;
+}
+.contacts-table input.form-control {
+    height: 30px;
+    margin: 2px 0;
+}
+.dynamic-contact-lines {
+
+}
+/* END Contacts */
+

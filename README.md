@@ -13,3 +13,10 @@ goods_tags
 
 findModels нужно передать new Object для подстановки таблиц в запрос
 $model->getImagesField($form, 3) - можно вторым параметром передать кол-во колонок сетки col-md-3
+
+
+
+
+// сделал модели Contact и ContactValue
+прописать для них все afterFind, afterDelete и т.д.
+Может еще прописать в BaseModel метод afterDelete, вместо delete() использовать deleteModel

@@ -54,6 +54,10 @@ AppAsset::register($this);
 
     <!-- Main Footer -->
     <?= $this->render('footer') ?>
+
+    <!-- Modal  -->
+    <?= $this->render('blocks/_modal_default') ?>
+
 </div>
 
 <?php $this->endBody() ?>

@@ -8,9 +8,6 @@ use common\widgets\contacts\ContactWidget;
 <div class="card">
     <div class="card-body">
         <div>
-            Контакты
-        </div>
-        <div>
             <?= ContactWidget::widget() ?>
         </div>
     </div>

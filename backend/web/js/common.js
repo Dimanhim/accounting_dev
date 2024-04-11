@@ -215,5 +215,5 @@ $(document).ready(function() {
     }
 
 
-    initPlugins()
+    common.init()
 })
