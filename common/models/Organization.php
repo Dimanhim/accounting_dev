@@ -75,7 +75,7 @@ class Organization extends BaseModel
             [['name', 'organization_name'], 'required'],
             [['client_id'], 'integer'],
             [['name', 'organization_name'], 'string', 'max' => 255],
-            [['_actual_address'], 'safe'],
+            [['_actual_address', '_requisites'], 'safe'],
         ]);
     }
 
@@ -111,6 +111,9 @@ class Organization extends BaseModel
 
     public function afterSave($insert, $changedAttributes)
     {
+        if($this->id) {
+
+        }
         $this->handleRequisites();
         return parent::afterSave($insert, $changedAttributes);
     }

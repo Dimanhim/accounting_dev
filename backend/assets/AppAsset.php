@@ -39,6 +39,7 @@ class AppAsset extends AssetBundle
             'css/jquery.fancybox.min.css',
             'css/toastr.min.css',
             'css/site.css?v='.mt_rand(1000,10000),
+            'css/contacts.css?v='.mt_rand(1000,10000),
         ];
     }
 

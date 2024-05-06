@@ -9,60 +9,11 @@ $this->registerJsFile('@web/js/modules/contact-widget.js?v=' . mt_rand(1000,1000
         <div class="col-md-12">
             <div class="contact-list contact-list-o">
                 <div class="form-group">
-                    <?= Html::a('+ Добавить', ['#'], ['class' => 'btn btn-xs btn-primary contact-create-o']) ?>
+                    <?= Html::a('+ Добавить', ['#'], ['class' => 'btn btn-sm btn-primary contact-create-o', 'data-type' => $this->context->type, 'data-object_id' => $this->context->object_id]) ?>
                 </div>
-                <table class="table table-striped table-bordered">
-                    <tr>
-                        <th>№ п/п</th>
-                        <th>Должность</th>
-                        <th>ФИО</th>
-                        <th>Телефоны</th>
-                        <th>E-mails</th>
-                        <th>Комментарий</th>
-                        <th>Действия</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Генеральный директор</td>
-                        <td>Иванов Иван Иванович</td>
-                        <td>
-                            +7 (988) 111-22-33,
-                            +7 (988) 444-55-66
-                        </td>
-                        <td>
-                            test@test.ru,
-                            test1@test.ru
-                        </td>
-                        <td>
-                            Хороший человек
-                        </td>
-                        <td class="contact-actions">
-                            <?= Html::a('<i class="bi bi-pencil"></i>', ['#'], ['class' => 'contact-update-o']) ?>
-                            <?= Html::a('<i class="bi bi-trash"></i>', ['#'], ['class' => 'contact-trash-o']) ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Генеральный директор</td>
-                        <td>Иванов Иван Иванович</td>
-                        <td>
-                            +7 (988) 111-22-33,
-                            +7 (988) 444-55-66
-                        </td>
-                        <td>
-                            test@test.ru,
-                            test1@test.ru
-                        </td>
-                        <td>
-                            Хороший человек
-                        </td>
-                        <td class="contact-actions">
-                            <?= Html::a('<i class="bi bi-pencil"></i>', ['#'], ['class' => 'contact-update-o']) ?>
-                            <?= Html::a('<i class="bi bi-trash"></i>', ['#'], ['class' => 'contact-trash-o']) ?>
-                        </td>
-                    </tr>
 
-                </table>
+                <?= $this->context->contactTableHtml() ?>
+
             </div>
         </div>
         <div class="col-md-6">
@@ -72,6 +23,5 @@ $this->registerJsFile('@web/js/modules/contact-widget.js?v=' . mt_rand(1000,1000
         </div>
     </div>
 </div>
-<?= $this->render('_modal') ?>
 
 

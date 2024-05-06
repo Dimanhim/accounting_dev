@@ -417,6 +417,17 @@ class BaseModel extends ActiveRecord
         return $model->save();
     }
 
+    public function getRequiredClassHtml($attributeName)
+    {
+        return $this->isAttributeRequired($attributeName) ? ' class="required"' : '';
+    }
+
+    public function delete()
+    {
+        $this->deleted = 1;
+        return $this->update();
+    }
+
 
 
 

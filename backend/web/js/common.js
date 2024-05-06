@@ -214,6 +214,38 @@ $(document).ready(function() {
         }
     }
 
+    $(document).on('click', '.alert-modal', function(e) {
+        e.preventDefault();
+        let subject = $(this).attr('data-confirm-subject')
+        let href = $(this).attr('href')
+        displayAlertModal(subject, href)
+    });
+
+
+
+
+
+
+    function displayAlertModal(subject, href, replaceTitle = false) {
+        if(!subject.length && !href.length) return false;
+        if(replaceTitle) {
+            $('#alert-subject-title').text('')
+        }
+        else {
+            $('#alert-subject').text('')
+        }
+        $('#alert-confirm-btn').attr('href', '')
+
+        if(replaceTitle) {
+            $('#alert-subject-title').text(subject)
+        }
+        else {
+            $('#alert-subject').text(subject)
+        }
+        $('#alert-confirm-btn').attr('href', href)
+        $('#alertModal').modal('show')
+    }
+
 
     common.init()
 })

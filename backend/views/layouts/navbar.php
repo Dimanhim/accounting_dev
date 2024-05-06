@@ -23,14 +23,16 @@ $notifications = Yii::$app->notifications->adminData();
         <li class="nav-item d-none d-sm-inline-block">
             <a href="<?= Url::to(['order/index']) ?>" class="nav-link">Заявки</a>
         </li>
-        <!--
+
         <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Быстрые ссылки</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                <li><a href="https://myadmin.jino.ru/index.php" class="dropdown-item">PhpMyadmin</a></li>
+                <li>
+                    <a href="https://myadmin.jino.ru/sql.php?db=j649859_accd" class="dropdown-item" target="_blank">PhpMyadmin</a>
+                </li>
             </ul>
         </li>
-        -->
+
         <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Справочники</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">

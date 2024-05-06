@@ -40,6 +40,8 @@ const common = (function() {
         }, 5000)
     }
 
+
+
     function initPlugins() {
         $('.chosen').chosen()
         $(".select-time").inputmask({"mask": "99:99"});

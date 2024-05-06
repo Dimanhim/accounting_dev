@@ -52,7 +52,7 @@ class ContactValue extends \yii\db\ActiveRecord
         return array_merge(parent::rules(), [
             [['contact_id'], 'required'],
             [['contact_id'], 'integer'],
-            [['phone', 'email'], 'string', 'max' => 255],
+            [['phone', 'added', 'email'], 'string', 'max' => 255],
         ]);
     }
 
@@ -64,6 +64,7 @@ class ContactValue extends \yii\db\ActiveRecord
         return array_merge(parent::attributeLabels(), [
             'contact_id' => 'Contact ID',
             'phone' => 'Телефон',
+            'added' => 'Доб.',
             'email' => 'E-mail',
         ]);
     }
