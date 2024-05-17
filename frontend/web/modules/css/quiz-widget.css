@@ -1,0 +1,13 @@
+.quiz-container {
+    padding: 45px;
+    border: 1px solid #ddd;
+    margin: 20px auto;
+}
+.quiz-header,
+.quiz-body
+{
+    margin-bottom: 15px;
+}
+.btn-quiz-result {
+    text-align: center;
+}

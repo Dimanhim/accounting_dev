@@ -27,6 +27,7 @@ class AppAsset extends AssetBundle
     private static function getCss()
     {
         return [
+            'css/toastr.min.css',
             'css/default.css?v='.mt_rand(1000,10000),
             'css/main.css?v='.mt_rand(1000,10000),
         ];
@@ -37,6 +38,7 @@ class AppAsset extends AssetBundle
             'js/bootstrap.min.js',
             'js/inputmask.js',
             'js/jquery.inputmask.js',
+            'js/toastr.min.js',
             'js/app.js?v='.mt_rand(1000,10000),
             'js/common.js?v='.mt_rand(1000,10000),
         ];

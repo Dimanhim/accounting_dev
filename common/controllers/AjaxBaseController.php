@@ -51,6 +51,11 @@ class AjaxBaseController extends Controller
         $this->_data['data'] = $data;
     }
 
+    public function _getErrors()
+    {
+        return $this->_errors;
+    }
+
     protected function _hasErrors()
     {
         return !empty($this->_errors);
@@ -78,8 +83,9 @@ class AjaxBaseController extends Controller
     protected function response($data = [])
     {
         if(!$this->_hasErrors()) {
-
-            $this->_data['data'] = $data;
+            if($data) {
+                $this->_data['data'] = $data;
+            }
         }
         else {
             $this->_data['error'] = 1;
