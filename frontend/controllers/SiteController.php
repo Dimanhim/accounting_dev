@@ -2,6 +2,8 @@
 
 namespace frontend\controllers;
 
+use common\models\BordOffer;
+use common\models\BordProduct;
 use common\models\Portfolio;
 use common\models\LandingTariff;
 use frontend\components\Site;
@@ -92,11 +94,145 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionBordShop()
+    {
+        $count = 0;
+
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
+        \Yii::$app->response->headers->add('Content-Type', 'text/xml');
+
+        $file = simplexml_load_file('bordshop/xml.xml');
+
+        /*if($file and $file->shop and ($categories = $file->shop->categories)) {
+            $categories = $categories->category;
+            echo "<pre>";
+            print_r($categories);
+            echo "</pre>";
+            exit;
+            foreach($categories as $categorYObj) {
+
+                foreach($categorYObj as $categorItem) {
+                    $id = $offerItem->attributes()->id;
+                    $available = $offerItem->attributes()->available;
+                    $param = $offerItem->param;
+
+
+                }
+            }
+        }*/
+
+        if($file and $file->shop and ($offers = $file->shop->offers)) {
+            foreach($offers as $offerObj) {
+                foreach($offerObj as $offerItem) {
+                    $id = (string) $offerItem->attributes()->id;
+                    $available = $offerItem->attributes()->available;
+                    $param = $offerItem->param;
+
+                    $model = new BordProduct();
+                    $model->offer_id = $id;
+                    $model->avaliable = (string) $available;
+                    $model->name = (string) trim($offerItem->name);
+                    $model->categoryId = (string) $offerItem->categoryId;
+                    $model->picture = (string) trim($offerItem->picture);
+                    $model->price = (string) $offerItem->price;
+                    $model->currencyId = (string) $offerItem->currencyId;
+                    $model->oldprice = (string) $offerItem->oldprice;
+                    $model->url = (string) str_replace('skusku', 'sku', trim($offerItem->url));
+                    $model->vendor = (string) trim($offerItem->vendor);
+                    $model->description = (string) trim($offerItem->description);
+                    $model->vendorCode = '97094';
+                    $model->setBarcode();
+                    $model->setModel();
+                    if($param and isset($param[0]) and isset($param[1]) and isset($param[2])) {
+                        $model->_chars = [
+                            'Цвет' => (string) $param[0],
+                            'Пол' => (string) $param[1],
+                            'Размер' => (string) $param[2],
+                        ];
+                    }
+                    if($model->save()) {
+                        $count++;
+                    }
+                    else {
+                        echo "<pre>";
+                        print_r($model->errors);
+                        echo "</pre>";
+                        exit;
+                    }
+                }
+            }
+        }
+
+        return 'Добавлено '.$count.' товаров';
+
+        return $this->renderPartial('bordshop/xml', [
+            'file' => $file
+        ]);
+    }
+
+    public function actionBordShopFormat()
+    {
+        $count = 0;
+
+        $pattern = "/размер.*/ui";
+
+        $products = BordProduct::find()->all();
+
+        $productNames = [];
+
+        if($products) {
+            foreach($products as $product) {
+                preg_match_all($pattern, $product->name, $matches);
+                $matches = $matches[0];
+                if($matches and isset($matches[0])) {
+                    $matches = $matches[0];
+                    $size = str_replace('размер', '', $matches);
+                    $size = trim($size);
+                    $productName = str_replace($matches, '', $product->name);
+                    $productName = trim($productName);
+                    $productName = mb_substr($productName, 0, -1);
+                    if(!in_array($productName, $productNames)) {
+                        $productNames[] = $productName;
+                        $product->name = $productName;
+                        $product->_chars['Размер'] = $size;
+                        $model = new BordOffer();
+                    }
+                    else {
+                        $chars = $product->_chars;
+                        $chars['Размер'] = $size;
+                        $product->_chars[] = $chars;
+                        $model = BordOffer::findOne(['name' => $productName]);
+
+                    }
+                }
+                else {
+                    $model = new BordOffer();
+                }
+
+                if($model) {
+                    $model->attributes = $product->attributes;
+                    $model->product_id = $product->id;
+                    $model->_chars = $product->_chars;
+                    if($model->save()) {
+                        $count++;
+                    }
+                    else {
+                        echo "<pre>";
+                        print_r($model->errors);
+                        echo "</pre>";
+                        exit;
+                    }
+                }
+            }
+        }
+        return 'Добавлено '.$count.' продуктов';
+    }
+
     public function actionPortfolio()
     {
         $this->layout = 'portfolio';
         $this->view->title = 'Портфолио '.Yii::$app->name;
-        $portfolio = Portfolio::findModels()->all();
+        $portfolio = Portfolio::finyesdModels()->all();
         return $this->render('portfolio', [
             'portfolio' => $portfolio,
         ]);

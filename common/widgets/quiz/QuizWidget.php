@@ -539,7 +539,7 @@ class QuizWidget extends Widget
         return [
             1 => [
                 'question_id' => 1,
-                'name' => 'Используете ли Вы учет товаров в данный момент?',
+                'name' => 'Используете ли Вы складской учет товаров в данный момент?',
                 'description' => '',
                 'sort' => 1,
                 'type' => self::TYPE_RADIO,
@@ -632,7 +632,7 @@ class QuizWidget extends Widget
                 'answers' => [
                     1 => [
                         'answer_id' => 1,
-                        'name' => 'Контроль товаров онлайн, чтобы избавиться от Excel таблиц и других способах учета',
+                        'name' => 'Контроль товаров онлайн, чтобы избавиться от Excel таблиц и других способов учета',
                         'description' => '',
                         'redirect_question_id' => 4,
                         'sort' => 1,
