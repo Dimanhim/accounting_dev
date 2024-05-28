@@ -86,12 +86,15 @@ class SiteController extends Controller
         $this->view->title = $site->title;
         $model = new SiteForm();
 
-
-
-        return $this->render('index', [
+        return $this->render('landing/index', [
             'site' => $site,
             'model' => $model,
         ]);
+    }
+
+    public function actionDownload()
+    {
+        return $this->render('download');
     }
 
     public function actionBordShop()

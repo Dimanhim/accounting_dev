@@ -10,6 +10,6 @@
     </div>
     <div class="quiz-footer">
         <input type="hidden" name="question" value="<?= $data['question_id'] ?>">
-        <button type="submit" class="btn btn-success btn-disabled" disabled>Следующий вопрос</button>
+        <button type="submit" class="button button-primary button-shadow wow fadeInRight btn-disabled" disabled>Следующий вопрос</button>
     </div>
 </form>

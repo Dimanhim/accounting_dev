@@ -14,8 +14,8 @@ class AppAsset extends AssetBundle
     public $css = [];
     public $js = [];
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap4\BootstrapAsset',
+        //'yii\web\YiiAsset',
+        //'yii\bootstrap4\BootstrapAsset',
     ];
 
     public function init()
@@ -27,20 +27,27 @@ class AppAsset extends AssetBundle
     private static function getCss()
     {
         return [
-            'css/toastr.min.css',
-            'css/default.css?v='.mt_rand(1000,10000),
-            'css/main.css?v='.mt_rand(1000,10000),
+            '/design/css/css.css',
+            '/design/css/bootstrap.css',
+            '/design/css/fonts.css',
+            '/design/css/style.css',
+            '/design/css/main.css',
+//            'css/toastr.min.css',
+//            'css/default.css?v='.mt_rand(1000,10000),
+//            'css/main.css?v='.mt_rand(1000,10000),
         ];
     }
     private static function getJs()
     {
         return [
-            'js/bootstrap.min.js',
+            '/design/js/core.min.js',
+            '/design/js/script.js',
+//            'js/bootstrap.min.js',
             'js/inputmask.js',
             'js/jquery.inputmask.js',
-            'js/toastr.min.js',
-            'js/app.js?v='.mt_rand(1000,10000),
-            'js/common.js?v='.mt_rand(1000,10000),
+//            'js/toastr.min.js',
+//            'js/app.js?v='.mt_rand(1000,10000),
+//            'js/common.js?v='.mt_rand(1000,10000),
         ];
     }
 }

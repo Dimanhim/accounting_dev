@@ -9,6 +9,7 @@ const widget = (function() {
 
 
     function init() {
+        initPlugins();
         bind();
     }
     function bind() {

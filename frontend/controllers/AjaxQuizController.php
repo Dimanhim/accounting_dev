@@ -11,6 +11,13 @@ class AjaxQuizController extends AjaxBaseController
 {
     protected $widget;
 
+    public function beforeAction($action)
+    {
+        $this->enableCsrfValidation = false;
+
+        return parent::beforeAction($action);
+    }
+
     public function init()
     {
         $this->widget = new QuizWidget();

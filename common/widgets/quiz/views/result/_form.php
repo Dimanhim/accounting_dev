@@ -11,25 +11,27 @@ $model = new QuizForm();
     <p>
         Для получения предложения, оставьте, пожалуйста, номер телефона и мы зарегистрируем Вас в системе!
     </p>
-
-    <?php $form = ActiveForm::begin(['id' => 'quiz-form-result']) ?>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <?= $form->field($model, 'name', ['template' => '{input}'])->textInput(['placeholder' => "Введите имя"]) ?>
+    <section class="quiz-form-result">
+        <?php $form = ActiveForm::begin(['id' => 'quiz-form-result']) ?>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <?= $form->field($model, 'name', ['template' => '{input}'])->textInput(['placeholder' => "Введите имя"]) ?>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <?= $form->field($model, 'phone', ['template' => '{input}'])->textInput(['placeholder' => "+7 (xxx) xxx-xx-xx", 'class' => 'form-control phone-mask']) ?>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <?= $form->field($model, 'phone', ['template' => '{input}'])->textInput(['placeholder' => "+7 (xxx) xxx-xx-xx", 'class' => 'form-control phone-mask']) ?>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-8 offset-md-2 btn-quiz-result">
-                    <?= Html::submitButton('Получить предложение', ['class' => 'btn btn-success btn-disabled btn-quiz-submit-o', 'disabled' => true]) ?>
+                    <div class="col-md-8 offset-md-2 btn-quiz-result">
+                        <?= Html::submitButton('Получить предложение', ['class' => 'button button-primary button-shadow wow fadeInRight btn-disabled btn-quiz-submit-o', 'disabled' => true]) ?>
+                    </div>
                 </div>
             </div>
-        </div>
-    <?php ActiveForm::end() ?>
+        <?php ActiveForm::end() ?>
+    </section>
+
 </div>
 <?php endif; ?>
