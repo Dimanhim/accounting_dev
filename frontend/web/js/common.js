@@ -2,10 +2,11 @@ const common = (function() {
 
     let modalFormId = 'modalForm';
     let modalResultId = 'modalResult';
-    let modalFormObj = $('#' + modalFormId);
     let modalResultObj = $('#' + modalResultId);
-    let modalForm = new bootstrap.Modal(document.getElementById(modalFormId));
-    let modalResult = new bootstrap.Modal(document.getElementById(modalResultId));
+    let modalForm = $('#' + modalFormId);
+    //let modalForm = new bootstrap.Modal(document.getElementById(modalFormId));
+    //let modalResult = new bootstrap.Modal(document.getElementById(modalResultId));
+    let modalResult = $('#' + modalResultId);
 
     let modalResultTitleObj = modalResultObj.find('h5.modal-title-o')
     let modalResultTextObj = modalResultObj.find('.modal-text-o')
@@ -17,9 +18,10 @@ const common = (function() {
     }
     function bind() {
         $(document).on('click', '.popup-form', function(e) {
+        //$(document).on('click', 'body', function(e) {
             e.preventDefault();
             showModalForm();
-        }).on('change', '.modalForm input', function() {
+        }).on('keyup', '.modalForm input', function() {
             let form = $(this).closest('form');
             validateForm(form)
         }).on('click', '.modalForm button[type="submit"]', function(e) {
@@ -27,22 +29,26 @@ const common = (function() {
             console.log('submit')
             let form = $(this).closest('form');
             submitForm(form)
+        }).on('click', '.modal__cross', function(e) {
+            e.preventDefault();
+            $('.modal').modal('hide');
         })
     }
 
     function validateForm(form) {
+        clearInfoMessages();
         let data = form.serialize();
         $.ajax({
             url: '/ajax/validate-form',
             type: 'POST',
             data: data,
             success: function (res) {
-                console.log('res validate', res);
+                console.log('result validate', res)
                 if(res.error == 0) {
                     enableFormBtn(form)
                 }
                 else if(res.message != null) {
-                    displayErrorMessage(res.message)
+                    displayErrorMessage(res.message, form)
                     disableFormBtn(form)
                 }
                 else {
@@ -90,17 +96,17 @@ const common = (function() {
     }
 
     function showModalForm() {
-        modalForm.show();
+        modalForm.modal('show');
     }
 
     function hideModalForm() {
-        modalForm.hide()
+        modalForm.modal('hide')
     }
 
     function showResultModal(messageTitle, messageText) {
         modalResultTitleObj.html(messageTitle)
         modalResultTextObj.html(messageText)
-        modalResult.show();
+        modalResult.modal('show');
     }
 
     function addPreloader() {
@@ -114,17 +120,20 @@ const common = (function() {
         }, 500)
     }
 
-    function displaySuccessMessage(message) {
-        $('.info-message').text(message).fadeIn();
-        setTimeout(function() {
-            $('.info-message').text('').fadeOut();
-        }, 5000)
+    function displaySuccessMessage(message, form) {
+        form.find('.info-message').addClass('success').text(message);
+        /*setTimeout(function() {
+            $('.info-message').text('').removeClass('error').removeClass('success');
+        }, 5000)*/
     }
-    function displayErrorMessage(message) {
-        $('.info-message').addClass('error').text(message).fadeIn();
-        setTimeout(function() {
-            $('.info-message').text('').fadeOut();
-        }, 5000)
+    function clearInfoMessages() {
+        $('.info-message').text('').removeClass('error').removeClass('success');
+    }
+    function displayErrorMessage(message, form) {
+        form.find('.info-message').addClass('error').text(message);
+        /*setTimeout(function() {
+            $('.info-message').text('').removeClass('error').removeClass('success');
+        }, 5000)*/
     }
 
     function initPlugins() {

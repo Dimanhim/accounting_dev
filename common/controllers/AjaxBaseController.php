@@ -32,14 +32,23 @@ class AjaxBaseController extends Controller
         ];
     }
 
+    /**
+     * Добавляет текст первой ошибки из модели
+     *
+     * @param $model
+     * @return bool
+     */
     public function _addModelFirstError($model)
     {
         if($modelErrors = $model->errors) {
             foreach ($modelErrors as $modelAttributeName => $modelAttributeErrors) {
                 if($modelAttributeErrors) {
                     foreach($modelAttributeErrors as $modelAttributeError) {
-                        $this->_addError($modelAttributeError);
-                        break;
+                        if($modelAttributeError) {
+                            $this->_addError($modelAttributeError);
+                            return false;
+                        }
+
                     }
                 }
             }

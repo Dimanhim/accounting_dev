@@ -31,9 +31,9 @@ class AppAsset extends AssetBundle
             '/design/css/bootstrap.css',
             '/design/css/fonts.css',
             '/design/css/style.css',
-            '/design/css/main.css',
+            '/design/css/main.css?v='.mt_rand(1000,10000),
 //            'css/toastr.min.css',
-//            'css/default.css?v='.mt_rand(1000,10000),
+            'css/default.css?v='.mt_rand(1000,10000),
 //            'css/main.css?v='.mt_rand(1000,10000),
         ];
     }
@@ -42,12 +42,12 @@ class AppAsset extends AssetBundle
         return [
             '/design/js/core.min.js',
             '/design/js/script.js',
-//            'js/bootstrap.min.js',
+            'js/bootstrap.min.js',
             'js/inputmask.js',
             'js/jquery.inputmask.js',
 //            'js/toastr.min.js',
-//            'js/app.js?v='.mt_rand(1000,10000),
-//            'js/common.js?v='.mt_rand(1000,10000),
+            'js/app.js?v='.mt_rand(1000,10000),
+            'js/common.js?v='.mt_rand(1000,10000),
         ];
     }
 }

@@ -44,7 +44,7 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 <div class="ie-panel">
     <a href="https://windows.microsoft.com/en-US/internet-explorer/">
-        <img src="images/ie8-panel/warning_bar_0000_us.jpg"
+        <img src="/design/images/ie8-panel/warning_bar_0000_us.jpg"
              height="42"
              width="820"
              alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today.">
@@ -63,16 +63,16 @@ AppAsset::register($this);
 
 <?= $content ?>
 
-<?/*= $this->render('blocks/_form', [
+<?= $this->render('blocks/_form', [
     'model' => new SiteForm(),
     ''
-])*/ ?>
-<?//= $this->render('blocks/_modal_result', []) ?>
+]) ?>
+<?= $this->render('blocks/_modal_result', []) ?>
 
 
     <!-- Page Footer-->
     <footer class="section footer-classic bg-gray-900 novi-bg novi-bg-img"
-            style="background-image: url(images/bg-price-1920x1128.png)">
+            style="background-image: url(/design/images/bg-price-1920x1128.png)">
         <div class="container">
             <div class="row row-30 justify-content-between">
                 <div class="col-xl-3 col-lg-3 col-sm-6">
@@ -102,8 +102,8 @@ AppAsset::register($this);
                     </ul>
                 </div>
             </div>
-            <div class="footer-classic-logo-wrap"><a class="brand" href="index.html"><img
-                            src="images/logo-default-189x35.png" alt="" width="189" height="35"/></a>
+            <div class="footer-classic-logo-wrap"><a class="brand" href="/"><img
+                            src="/design/images/logo-default-189x35.png" alt="" width="189" height="35"/></a>
             </div>
             <p class="rights"><span>&copy;&nbsp; </span><span class="copyright-year"></span><span>&nbsp;</span><span>Interia</span><span>. All Rights Reserved. Design by Zemez</span>
             </p>

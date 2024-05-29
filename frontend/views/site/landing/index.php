@@ -1,6 +1,8 @@
 <?php
 
 use common\widgets\quiz\QuizWidget;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
 ?>
     <!-- Page Header-->
@@ -70,11 +72,16 @@ use common\widgets\quiz\QuizWidget;
         </div>
         <div class="box-custom-1-main" style="background-image: url(/design/images/home-01-1676x731.jpg)">
             <div class="block-sm">
-                <h2 class="wow fadeInRight" data-wow-delay=".5s">Interior design and decor <br> for your home</h2>
-                <p class="wow fadeInRight" data-wow-delay=".6s">Our team creates comfortable spaces for our clients.
-                    We’ve been designing your everyday life and work through great ideas since 1999.</p><a
-                        class="button button-primary button-shadow wow fadeInRight" data-wow-delay=".7s" href="#">Free
-                    consultation</a>
+                <h2 class="wow fadeInRight" data-wow-delay=".5s">
+                    Interior design and decor <br> for your home
+                </h2>
+                <p class="wow fadeInRight" data-wow-delay=".6s">
+                    Our team creates comfortable spaces for our clients.
+                    We’ve been designing your everyday life and work through great ideas since 1999.
+                </p>
+                <a class="button button-primary button-shadow wow fadeInRight popup-form" data-wow-delay=".7s" href="#">
+                    Оставить заявку на регистрацию
+                </a>
             </div>
         </div>
     </section>
@@ -504,23 +511,30 @@ use common\widgets\quiz\QuizWidget;
                     <div class="box-cta bg-gray-700 novi-bg">
                         <div class="row row-30">
                             <div class="col-xl-10">
-                                <form class="rd-form rd-mailform rd-form-inline" data-form-output="form-output-global"
-                                      data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
-                                    <div class="form-wrap">
-                                        <input class="form-input" id="contact-2-name" type="text" name="name"
-                                               data-constraints="@Required">
-                                        <label class="form-label" for="contact-2-name">Name</label>
-                                    </div>
-                                    <div class="form-wrap">
-                                        <input class="form-input" id="contact-2-email" type="email" name="email"
-                                               data-constraints="@Email @Required">
-                                        <label class="form-label" for="contact-2-email">E-mail</label>
-                                    </div>
-                                    <div class="form-button">
-                                        <button class="button button-primary button-shadow" type="submit">Send request
-                                        </button>
-                                    </div>
-                                </form>
+                                <?php $form = ActiveForm::begin([
+                                    'enableClientScript' => false,
+                                    'fieldConfig' => ['options' => ['tag' => false]],
+                                    'options' => [
+                                        'class' => 'modalForm rd-form rd-mailform rd-form-inline'
+                                    ],
+                                ]) ?>
+                                <div class="form-wrap">
+                                    <?= $form->field($model, 'name', ['template' => '{input}'])->textInput(['class' => 'form-input', 'placeholder' => 'Имя']) ?>
+                                    <label class="form-label" for="contact-2-name"><?= $model->getAttributeLabel('name') ?></label>
+                                </div>
+                                <div class="form-wrap">
+                                    <?= $form->field($model, 'phone', ['template' => '{input}'])->textInput(['class' => 'form-input phone-mask', 'placeholder' => 'Телефон']) ?>
+                                    <label class="form-label" for=""><?= $model->getAttributeLabel('phone') ?></label>
+                                </div>
+                                <div class="form-button">
+                                    <?= Html::submitButton('Зарегистрироваться', ['class' => "button button-primary button-shadow btn-disabled", 'disabled' => true,]) ?>
+                                </div>
+                                <?= $form->field($model, 'pressed_btn', ['template' => '{input}'])->hiddenInput(['value' => 'Нижняя форма']) ?>
+                                <?= $form->field($model, 'service_id', ['template' => '{input}'])->hiddenInput(['value' => '']) ?>
+                                <?= $form->field($model, 'utm', ['template' => '{input}'])->hiddenInput(['value' => $model->getUtms()]) ?>
+                                <p class="info-message"></p>
+                                <?php ActiveForm::end() ?>
+
                             </div>
                             <div class="col-xl-2">
                                 <div class="box-cta-text">
@@ -614,10 +628,15 @@ use common\widgets\quiz\QuizWidget;
             </div>
         </div>
     </section>
-    <section><a class="d-block"
+
+    <section>
+        <a class="d-block"
                 href="https://www.templatemonster.com/landing-page-template/interia-design-one-page-creative-html-landing-page-template-75772.html"
-                target="_blank"><img class="img-responsive" src="/design/images/banner-bottom-2050x310.jpg" alt="" width="2050"
-                                     height="310"/></a></section>
+                target="_blank">
+            <img class="img-responsive" src="/design/images/banner-bottom-2050x310.jpg" alt="" width="2050"
+                                     height="310"/>
+        </a>
+    </section>
 
 
 
