@@ -36,7 +36,8 @@ return [
         ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
-            'baseUrl' => ''
+            'baseUrl' => '',
+            'cookieValidationKey' => 'jeufitnhdyjektodiuysnehbrlke754nfj'
         ],
         'user' => [
             'identityClass' => 'common\models\Client',
