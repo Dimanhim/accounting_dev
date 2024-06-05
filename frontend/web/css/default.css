@@ -78,5 +78,50 @@ div.required label.control-label:after {
     position: absolute;
     text-align: center;
 }
+.utp {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 1) !important;
+}
+.promo {
+    font-size: 22px;
+    padding: 5px 10px;
+    background: #FFDC25;
+    color: #000;
+    /*color: #2b54dc;*/
+}
+.block-offer {
+    background: rgba(0,0,0,0.6);
+    padding-right: 103px;
+    margin-left: 30px;
+}
+.advantages {
+    /*text-align: center;*/
+}
+.advantages ul.list {
+    display: flex;
+    flex-wrap: wrap;
+}
+.advantages ul.list li {
+    width: 33%;
+}
+.unit {
+    display: inline;
+    flex: auto;
+    padding: 30px 10px;
+}
+.list-classic-wrap li + li {
+    margin-top: 0;
+}
+.unit-spacing-lg {
+    margin: 0;
+}
+.list-classic .unit-left {
+    margin: 0 auto 30px;
+}
+@media (min-width: 768px) {
+    .data-dots-custom.active::after {
+        right: 100px;
+    }
+}
 
 

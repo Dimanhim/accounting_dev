@@ -9,7 +9,7 @@ use yii\helpers\Html;
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Заголовок модального окна</h5>
+                <h5 class="modal-title">Заявка на регистрацию в системе</h5>
                 <button type="button" class="btn-close modal__cross" data-bs-dismiss="modal" aria-label="Закрыть"></button>
             </div>
             <div class="container">

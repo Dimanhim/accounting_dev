@@ -13,6 +13,7 @@ const common = (function() {
 
     function init() {
         bind();
+        setPromoDate();
         initPlugins()
         //showResultModal('пасиба', 'наши специалисты свяжутся с вами')
     }
@@ -84,6 +85,27 @@ const common = (function() {
             }
         });
     }
+
+    function setPromoDate() {
+        // Акция - замена даты
+        var arr_month = new Array('января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря');
+        var date = new Date();
+        var month = date.getMonth();
+        var day = date.getDate() + 1;
+        if(month == 1 && day == 29) {
+            day = 1;
+            month = month + 1;
+        }
+        if(day == 31) {
+            day = 1;
+            month = month + 1;
+        }
+        month = arr_month[month];
+        var text = 'до ' + day + ' ' + month;
+        $('.promo').html(text);
+    }
+
+
 
     function enableFormBtn(form) {
         let btn = form.find('button[type="submit"]')

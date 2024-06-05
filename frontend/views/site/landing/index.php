@@ -47,7 +47,7 @@ use yii\widgets\ActiveForm;
                             <ul class="list-inline list-inline-md">
                                 <li><a class="link-bd-btm" href="mailto:#">info@demolink.org</a></li>
                                 <li><a class="link-bd-btm" href="tel:#">1-800-901-234</a></li>
-                                <li><a class="link-bd-btm" href="#">Get a quote</a></li>
+                                <li><a class="link-bd-btm " href="#">Get a quote</a></li>
                             </ul>
                         </div>
                     </div>
@@ -71,18 +71,21 @@ use yii\widgets\ActiveForm;
             </ul>
         </div>
         <div class="box-custom-1-main" style="background-image: url(/design/images/home-01-1676x731.jpg)">
-            <div class="block-sm">
-                <h2 class="wow fadeInRight" data-wow-delay=".5s">
-                    Interior design and decor <br> for your home
-                </h2>
-                <p class="wow fadeInRight" data-wow-delay=".6s">
-                    Our team creates comfortable spaces for our clients.
-                    We’ve been designing your everyday life and work through great ideas since 1999.
-                </p>
-                <a class="button button-primary button-shadow wow fadeInRight popup-form" data-wow-delay=".7s" href="#">
-                    Оставить заявку на регистрацию
-                </a>
+            <div class="block-offer">
+                <div class="block-sm">
+                    <h2 class="wow fadeInRight" data-wow-delay=".5s">
+                        Онлайн система учета товаров<br>для вашего бизнеса
+                    </h2>
+                    <p class="utp wow fadeInRight" data-wow-delay=".6s">
+                        Только <span class="promo"></span> зарегистрируйтесь в системе
+                        и получите 30 дней пользования в подарок!
+                    </p>
+                    <a class="button button-primary button-shadow wow fadeInRight popup-form" data-wow-delay=".7s" href="#">
+                        Попробовать бесплатно
+                    </a>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -90,10 +93,13 @@ use yii\widgets\ActiveForm;
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Пройдите короткий тест</h2>
+                    <h2>Узнайте, подходит ли Вам система</h2>
                 </div>
                 <div class="col-lg-12">
-                    <p class="pretitle text-primary">И получите 30 дней пользования сервисом бесплатно!</p>
+                    <p class="pretitle text-primary">
+                        Пройдите короткий тест<br>
+                        И получите 30 дней пользования сервисом бесплатно!
+                    </p>
                 </div>
 
                 <div class="col-lg-12">
@@ -104,101 +110,105 @@ use yii\widgets\ActiveForm;
     </section>
 
     <section class="section section-lg bg-white bg-img-custom" id="about"
-             style="background-image: url(/design/images/home-16-768x450.png)">
-        <div class="container container-custom-left">
+             style="">
+        <div class="container">
             <div class="row justify-content-between row-60 row-md-30 flex-wrap-reverse flex-lg-wrap">
-                <div class="col-lg-7">
-                    <div class="row row-41">
-                        <div class="col-xs-4 maw-29">
-                            <div class="row row-41">
-                                <div class="col-12">
-                                    <div class="box-custom-3 wow fadeInLeft" data-wow-delay=".7s">
-                                        <img class="mt-112"
-                                                                                                       src="/design/images/home-11-226x261.jpg"
-                                                                                                       alt=""
-                                                                                                       width="226"
-                                                                                                       height="261"/>
+                <div class="col-lg-12">
+                    <div class="advantages">
+                        <div class="box-custom-2">
+                            <h2 class="wow fadeInRight" data-wow-delay=".5s">Почему пользуются нашей системой склада?</h2>
+                            <p class="wow fadeInRight" data-wow-delay=".6s">
+                                Лучше всего система подойдет индивидуальным предпринимателям, имеющим небольшой магазин по продаже товаров.
+                            </p>
+                            <ul class="list index-list list-classic-wrap">
+                                <li class="unit unit-spacing-lg align-items-start list-classic flex-column flex-xs-row wow fadeInRight"
+                                    data-wow-delay=".7s">
+                                    <div class="unit-left list-index-counter">
+                                        <div class="list-classic-rectangle"></div>
+                                        <div class="icon novi-icon linearicons-tornado icon-xl"></div>
                                     </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="box-custom-3 wow fadeInLeft" data-wow-delay=".8s"><img
-                                                src="/design/images/home-12-226x564.jpg" alt="" width="226" height="564"/>
+                                    <div class="unit-body">
+                                        <h4>Низкая стоимость услуг</h4>
+                                        <p>
+                                            Оплата только за выбранные услуги.<br>
+                                            Вы самостоятельно выбираете за что будете платить, без покупки всего функционала системы.
+                                        </p>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-8">
-                            <div class="row row-41">
-                                <div class="col-12">
-                                    <div class="box-custom-3 wow fadeInLeft" data-wow-delay=".5s"><img
-                                                src="/design/images/home-13-560x564.jpg" alt="" width="560" height="564"/>
-                                        <div class="box-custom-3-container">
-                                            <div class="box-custom-3-wrap">
-                                                <div class="box-custom-3-item">
-                                                    <p class="box-custom-3-name">Alice Merton</p>
-                                                    <p class="box-custom-3-position">Founder of “Interia”</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                </li>
+                                <li class="unit unit-spacing-lg align-items-start list-classic flex-column flex-xs-row wow fadeInRight"
+                                    data-wow-delay=".8s">
+                                    <div class="unit-left list-index-counter">
+                                        <div class="list-classic-rectangle"></div>
+                                        <div class="icon novi-icon linearicons-stamp icon-lg"></div>
                                     </div>
-                                </div>
-                                <div class="col-md-7">
-                                    <div class="box-custom-3 box-custom-3-border wow fadeInLeft" data-wow-delay=".6s">
-                                        <div class="box-custom-3-border-dashed"></div>
-                                        <div class="box-custom-3-border-angel"></div>
-                                        <img src="/design/images/home-14-257x261.jpg" alt="" width="257" height="261"/>
+                                    <div class="unit-body">
+                                        <h4>Бесплатный пробный период</h4>
+                                        <p>
+                                            Удобна Вам система или нет - Вы сможете понять за 30 дней пробного периода.<br>
+                                            После его окончания, Ваши данные не удаляются и будут доступны еще 60 дней.
+                                        </p>
                                     </div>
-                                </div>
+                                </li>
+
+                                <li class="unit unit-spacing-lg align-items-start list-classic flex-column flex-xs-row wow fadeInRight"
+                                    data-wow-delay=".9s">
+                                    <div class="unit-left list-index-counter">
+                                        <div class="list-classic-rectangle"></div>
+                                        <div class="icon novi-icon linearicons-factory icon-lg"></div>
+                                    </div>
+                                    <div class="unit-body">
+                                        <h4>Создана для малого бизнеса</h4>
+                                        <p>
+                                            Все настройки системы созданы под потребности малого товарного бизнеса.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="unit unit-spacing-lg align-items-start list-classic flex-column flex-xs-row wow fadeInRight"
+                                    data-wow-delay=".9s">
+                                    <div class="unit-left list-index-counter">
+                                        <div class="list-classic-rectangle"></div>
+                                        <div class="icon novi-icon linearicons-store icon-lg"></div>
+                                    </div>
+                                    <div class="unit-body">
+                                        <h4>Удобство работы с маркетплейсами</h4>
+                                        <p>
+                                            Автоматизация работы с популярными маркетплейсами - Wildberries, Ozon, Яндекс. Это возможность не нанимать менеджера маркетплейсов.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="unit unit-spacing-lg align-items-start list-classic flex-column flex-xs-row wow fadeInRight"
+                                    data-wow-delay=".9s">
+                                    <div class="unit-left list-index-counter">
+                                        <div class="list-classic-rectangle"></div>
+                                        <div class="icon novi-icon linearicons-document icon-lg"></div>
+                                    </div>
+                                    <div class="unit-body">
+                                        <h4>Работа по договору</h4>
+                                        <p>
+                                            Мы предоставляем Вам личный кабинет и заключаем договор на оказание услуг.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="unit unit-spacing-lg align-items-start list-classic flex-column flex-xs-row wow fadeInRight"
+                                    data-wow-delay=".9s">
+                                    <div class="unit-left list-index-counter">
+                                        <div class="list-classic-rectangle"></div>
+                                        <div class="icon novi-icon linearicons-cloud icon-lg"></div>
+                                    </div>
+                                    <div class="unit-body">
+                                        <h4>Система полностью онлайн</h4>
+                                        <p>
+                                            Вам не потребуется покупка отдельных услуг и интернет-мощностей.
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div style="text-align: center;">
+                                <a class="button button-primary button-shadow wow fadeInRight popup-form" data-wow-delay="1s" href="#">Попробовать бесплатно</a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-5 col-xxl-4">
-                    <div class="box-custom-2">
-                        <h2 class="wow fadeInRight" data-wow-delay=".5s">Why Choose Us</h2>
-                        <p class="wow fadeInRight" data-wow-delay=".6s">Besides great interior design, there are lots of
-                            reasons to choose Interia. Here are some of the most popular ones.</p>
-                        <ul class="list index-list list-classic-wrap">
-                            <li class="unit unit-spacing-lg align-items-start list-classic flex-column flex-xs-row wow fadeInRight"
-                                data-wow-delay=".7s">
-                                <div class="unit-left list-index-counter">
-                                    <div class="list-classic-rectangle"></div>
-                                    <div class="icon novi-icon linearicons-users2 icon-xl"></div>
-                                </div>
-                                <div class="unit-body">
-                                    <h4>Professional Team</h4>
-                                    <p>Our team includes only the best decorators and interior designers in the
-                                        industry.</p>
-                                </div>
-                            </li>
-                            <li class="unit unit-spacing-lg align-items-start list-classic flex-column flex-xs-row wow fadeInRight"
-                                data-wow-delay=".8s">
-                                <div class="unit-left list-index-counter">
-                                    <div class="list-classic-rectangle"></div>
-                                    <div class="icon novi-icon linearicons-lamp icon-lg"></div>
-                                </div>
-                                <div class="unit-body">
-                                    <h4>Unusual Ideas</h4>
-                                    <p>Our designers generate various yet always original ideas that will surely fit
-                                        your needs.</p>
-                                </div>
-                            </li>
-                            <li class="unit unit-spacing-lg align-items-start list-classic flex-column flex-xs-row wow fadeInRight"
-                                data-wow-delay=".9s">
-                                <div class="unit-left list-index-counter">
-                                    <div class="list-classic-rectangle"></div>
-                                    <div class="icon novi-icon linearicons-heart icon-lg"></div>
-                                </div>
-                                <div class="unit-body">
-                                    <h4>Made with Respect</h4>
-                                    <p>All our work is built around respect to our clients, great service, and
-                                        creativity.</p>
-                                </div>
-                            </li>
-                        </ul>
-                        <a class="button button-primary button-shadow wow fadeInRight" data-wow-delay="1s" href="#">Get
-                            a Quote</a>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -208,9 +218,9 @@ use yii\widgets\ActiveForm;
              style="background-image: url(/design/images/bg-price-1920x1128.png)">
         <div class="container">
             <div class="row justify-content-center wow fadeInDown" data-wow-delay=".25s">
-                <div class="col-lg-4 col-md-7 col-sm-8">
-                    <h2>Design options for your budget</h2>
-                    <p class="pretitle text-primary">Choose your budget</p>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <h2>Приблизительный расчет стоимости услуг</h2>
+                    <p class="pretitle text-primary">Выберите бюджет в месяц</p>
                 </div>
                 <div class="col-lg-9">
                     <div class="kraken-range"></div>
@@ -219,10 +229,10 @@ use yii\widgets\ActiveForm;
                                 class="icon mdi mdi-chevron-down"></span>Budget
                     </button>
                     <div class="owl-pagination-custom" id="owl-pagination-custom">
-                        <div class="data-dots-custom" data-owl-item="0"><span>$10 000</span></div>
-                        <div class="data-dots-custom" data-owl-item="1"><span>$30 000</span></div>
-                        <div class="data-dots-custom" data-owl-item="2"><span>$50 000</span></div>
-                        <div class="data-dots-custom" data-owl-item="3"><span>$80 000</span></div>
+                        <div class="data-dots-custom" data-owl-item="0"><span>до 1000 руб./мес.</span></div>
+                        <div class="data-dots-custom" data-owl-item="1"><span>1000-5000 руб./мес.</span></div>
+                        <div class="data-dots-custom" data-owl-item="2"><span>5000-10000 руб./мес.</span></div>
+                        <div class="data-dots-custom" data-owl-item="3"><span>от 10000 руб./мес.</span></div>
                     </div>
                 </div>
             </div>
@@ -230,113 +240,149 @@ use yii\widgets\ActiveForm;
                  data-margin="0" data-mouse-drag="false" data-dots-custom="#owl-pagination-custom">
                 <div class="row justify-content-center row-37">
                     <div class="col-12">
-                        <div class="pricing-box">$10 000</div>
+                        <div class="pricing-box">до 1000 руб./мес.</div>
                     </div>
                     <div class="col-md-4">
-                        <div class="thumbnail"><a href="#"><img src="/design/images/home-02-370x222.jpg" alt="" width="370"
-                                                                height="222"/></a></div>
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="/design/images/shop.jpg" alt="" width="370"
+                                                                height="222"/>
+                            </a>
+                        </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="thumbnail"><a href="#"><img src="/design/images/home-03-370x222.jpg" alt="" width="370"
-                                                                height="222"/></a></div>
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="/design/images/stock.jpg" alt="" width="370"
+                                                                height="222"/>
+                            </a>
+                        </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="thumbnail"><a href="#"><img src="/design/images/home-04-370x222.jpg" alt="" width="370"
-                                                                height="222"/></a></div>
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="/design/images/marketplace.jpg" alt="" width="370"
+                                                                height="222"/>
+                            </a>
+                        </div>
                     </div>
                     <div class="col-xl-8 col-lg-10">
-                        <p class="pretitle text-white">What influences the budget</p>
+                        <p class="pretitle text-white">Какие услуги можно выбрать?</p>
                         <ul class="list-decorative">
-                            <li>Flooring</li>
-                            <li>Decorative accessories</li>
-                            <li>Shipping fees</li>
-                            <li>Window treatments</li>
-                            <li>Labor costs</li>
-                            <li>Applicable taxes</li>
+                            <li>Неограниченное количество организаций и магазинов</li>
+                            <li>Неограниченное количество категорий товаров и складов</li>
+                            <li>До 100 товаров, <br>либо до 70 товаров и работа с одним маркетплейсом</li>
                         </ul>
                     </div>
                 </div>
                 <div class="row justify-content-center row-37">
                     <div class="col-12">
-                        <div class="pricing-box">$30 000</div>
+                        <div class="pricing-box">1000-5000 руб./мес.</div>
                     </div>
                     <div class="col-md-4">
-                        <div class="thumbnail"><a href="#"><img src="/design/images/home-02-370x222.jpg" alt="" width="370"
-                                                                height="222"/></a></div>
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="/design/images/shop.jpg" alt="" width="370"
+                                                                height="222"/>
+                            </a></div>
                     </div>
                     <div class="col-md-4">
-                        <div class="thumbnail"><a href="#"><img src="/design/images/home-03-370x222.jpg" alt="" width="370"
-                                                                height="222"/></a></div>
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="/design/images/stock.jpg" alt="" width="370"
+                                                                height="222"/>
+                            </a>
+                        </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="thumbnail"><a href="#"><img src="/design/images/home-04-370x222.jpg" alt="" width="370"
-                                                                height="222"/></a></div>
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="/design/images/marketplace.jpg" alt="" width="370"
+                                                                height="222"/>
+                            </a>
+                        </div>
                     </div>
                     <div class="col-xl-8 col-lg-10">
-                        <p class="pretitle text-white">What influences the budget</p>
+                        <p class="pretitle text-white">Какие услуги можно выбрать?</p>
                         <ul class="list-decorative">
-                            <li>Decorative accessories</li>
-                            <li>Flooring</li>
-                            <li>Window treatments</li>
-                            <li>Shipping fees</li>
-                            <li>Applicable taxes</li>
-                            <li>Labor costs</li>
+                            <li>Неограниченное количество организаций и магазинов</li>
+                            <li>Неограниченное количество категорий товаров и складов</li>
+                            <li>До 500 товаров, <br>либо до 400 товаров и работа со всеми маркетплейсами</li>
                         </ul>
                     </div>
                 </div>
                 <div class="row justify-content-center row-37">
                     <div class="col-12">
-                        <div class="pricing-box">$50 000</div>
+                        <div class="pricing-box">5000-10000 руб./мес.</div>
                     </div>
                     <div class="col-md-4">
-                        <div class="thumbnail"><a href="#"><img src="/design/images/home-02-370x222.jpg" alt="" width="370"
-                                                                height="222"/></a></div>
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="/design/images/shop.jpg" alt="" width="370"
+                                                                height="222"/>
+                            </a>
+                        </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="thumbnail"><a href="#"><img src="/design/images/home-03-370x222.jpg" alt="" width="370"
-                                                                height="222"/></a></div>
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="/design/images/stock.jpg" alt="" width="370"
+                                                                height="222"/>
+                            </a>
+                        </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="thumbnail"><a href="#"><img src="/design/images/home-04-370x222.jpg" alt="" width="370"
-                                                                height="222"/></a></div>
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="/design/images/marketplace.jpg" alt="" width="370"
+                                                                height="222"/>
+                            </a>
+                        </div>
                     </div>
                     <div class="col-xl-8 col-lg-10">
-                        <p class="pretitle text-white">What influences the budget</p>
+                        <p class="pretitle text-white">Какие услуги можно выбрать?</p>
                         <ul class="list-decorative">
-                            <li>Flooring</li>
-                            <li>Decorative accessories</li>
-                            <li>Shipping fees</li>
-                            <li>Window treatments</li>
-                            <li>Labor costs</li>
-                            <li>Applicable taxes</li>
+                            <li>Неограниченное количество организаций и магазинов</li>
+                            <li>Неограниченное количество категорий товаров и складов</li>
+                            <li>До 1000 товаров, <br>либо до 900 товаров и работа со всеми маркетплейсами</li>
+                        </ul>
                         </ul>
                     </div>
                 </div>
                 <div class="row justify-content-center row-37">
                     <div class="col-12">
-                        <div class="pricing-box">$80 000</div>
+                        <div class="pricing-box">от 10000 руб./мес.</div>
                     </div>
                     <div class="col-md-4">
-                        <div class="thumbnail"><a href="#"><img src="/design/images/home-02-370x222.jpg" alt="" width="370"
-                                                                height="222"/></a></div>
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="/design/images/shop.jpg" alt="" width="370"
+                                                                height="222"/>
+                            </a>
+                        </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="thumbnail"><a href="#"><img src="/design/images/home-03-370x222.jpg" alt="" width="370"
-                                                                height="222"/></a></div>
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="/design/images/stock.jpg" alt="" width="370"
+                                                                height="222"/>
+                            </a>
+                        </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="thumbnail"><a href="#"><img src="/design/images/home-04-370x222.jpg" alt="" width="370"
-                                                                height="222"/></a></div>
+                        <div class="thumbnail">
+                            <a href="#">
+                                <img src="/design/images/marketplace.jpg" alt="" width="370"
+                                                                height="222"/>
+                            </a>
+                        </div>
                     </div>
                     <div class="col-xl-8 col-lg-10">
-                        <p class="pretitle text-white">What influences the budget</p>
+                        <p class="pretitle text-white">Какие услуги можно выбрать?</p>
                         <ul class="list-decorative">
-                            <li>Decorative accessories</li>
-                            <li>Flooring</li>
-                            <li>Window treatments</li>
-                            <li>Shipping fees</li>
-                            <li>Applicable taxes</li>
-                            <li>Labor costs</li>
+                            <li>Неограниченное количество организаций и магазинов</li>
+                            <li>Неограниченное количество категорий товаров и складов</li>
+                            <li>От 1000 товаров, <br>либо от 900 товаров и работа со всеми маркетплейсами</li>
                         </ul>
                     </div>
                 </div>
@@ -470,7 +516,7 @@ use yii\widgets\ActiveForm;
         <div class="container">
             <div class="row row-fix justify-content-center wow fadeInDown" data-wow-delay=".25s">
                 <div class="col-lg-6 col-md-8">
-                    <h2>Book a free designer consultation</h2>
+                    <h2>Как мы с Вами будем работать?</h2>
                     <p class="pretitle text-primary">A great way to your new interior</p>
                 </div>
             </div>
