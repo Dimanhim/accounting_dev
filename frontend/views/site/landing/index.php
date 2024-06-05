@@ -23,13 +23,13 @@ use yii\widgets\ActiveForm;
                         <div class="rd-navbar-nav-wrap">
                             <!-- RD Navbar Nav-->
                             <ul class="rd-navbar-nav">
-                                <li class="rd-nav-item active"><a class="rd-nav-link" href="#home">Home</a>
+                                <li class="rd-nav-item active"><a class="rd-nav-link" href="#home">Главная</a>
                                 </li>
-                                <li class="rd-nav-item"><a class="rd-nav-link" href="#about">About</a>
+                                <li class="rd-nav-item"><a class="rd-nav-link" href="#quiz">Узнать про систему</a>
                                 </li>
-                                <li class="rd-nav-item"><a class="rd-nav-link" href="#portfolio">Portfolio</a>
+                                <li class="rd-nav-item"><a class="rd-nav-link" href="#about">Почему мы?</a>
                                 </li>
-                                <li class="rd-nav-item"><a class="rd-nav-link" href="#contacts">Contacts</a>
+                                <li class="rd-nav-item"><a class="rd-nav-link" href="#calculate">Расчет стоимости</a>
                                 </li>
                             </ul>
                         </div>
@@ -39,15 +39,17 @@ use yii\widgets\ActiveForm;
                             <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span>
                             </button>
                             <!-- RD Navbar Brand-->
-                            <div class="rd-navbar-brand"><a class="brand" href="index.html"><img
-                                            src="/design/images/logo-default-189x35.png" alt="" width="189" height="35"/></a>
+                            <div class="rd-navbar-brand">
+                                <a class="brand" href="index.html">
+                                    <img src="/design/images/logo-white.png" alt="" width="189" height="35" class="logo"/>
+                                </a>
                             </div>
                         </div>
                         <div class="rd-navbar-collapse">
                             <ul class="list-inline list-inline-md">
-                                <li><a class="link-bd-btm" href="mailto:#">info@demolink.org</a></li>
-                                <li><a class="link-bd-btm" href="tel:#">1-800-901-234</a></li>
-                                <li><a class="link-bd-btm " href="#">Get a quote</a></li>
+                                <li><a class="link-bd-btm" href="mailto:#"></a></li>
+                                <li><a class="link-bd-btm" href="tel:#"></a></li>
+                                <li><a class="link-bd-btm " href="#"></a></li>
                             </ul>
                         </div>
                     </div>
@@ -58,17 +60,25 @@ use yii\widgets\ActiveForm;
 
     <section class="section bg-gray-900 box-custom-1">
         <div class="box-custom-1-aside">
+            <!--
             <ul class="box-custom-1-list">
-                <li class="wow fadeInLeft" data-wow-delay=".5s"><a class="link link-social" href="#">
+                <li class="wow fadeInLeft" data-wow-delay=".5s">
+                    <a class="link link-social" href="#">
                         <div class="icon novi-icon fa-facebook"></div>
-                    </a></li>
-                <li class="wow fadeInLeft" data-wow-delay=".6s"><a class="link link-social" href="#">
+                    </a>
+                </li>
+                <li class="wow fadeInLeft" data-wow-delay=".6s">
+                    <a class="link link-social" href="#">
                         <div class="icon novi-icon fa-youtube-play"></div>
-                    </a></li>
-                <li class="wow fadeInLeft" data-wow-delay=".7s"><a class="link link-social" href="#">
-                        <div class="icon novi-icon fa-instagram"></div>
-                    </a></li>
+                    </a>
+                </li>
+                <li class="wow fadeInLeft" data-wow-delay=".7s">
+                    <a class="link link-social" href="#">
+                       <div class="icon novi-icon fa-instagram"></div>
+                    </a>
+                </li>
             </ul>
+            -->
         </div>
         <div class="box-custom-1-main" style="background-image: url(/design/images/home-01-1676x731.jpg)">
             <div class="block-offer">
@@ -214,7 +224,7 @@ use yii\widgets\ActiveForm;
         </div>
     </section>
 
-    <section class="section section-sm bg-gray-900 novi-bg novi-bg-img text-center"
+    <section id="calculate" class="section section-sm bg-gray-900 novi-bg novi-bg-img text-center"
              style="background-image: url(/design/images/bg-price-1920x1128.png)">
         <div class="container">
             <div class="row justify-content-center wow fadeInDown" data-wow-delay=".25s">
@@ -387,9 +397,14 @@ use yii\widgets\ActiveForm;
                     </div>
                 </div>
             </div>
+            <div style="margin-top: 80px;">
+                <a class="button button-primary button-shadow wow fadeInRight popup-form" data-wow-delay=".7s" href="#">
+                    Попробовать бесплатно
+                </a>
+            </div>
         </div>
     </section>
-
+<!--
     <section class="section section-md-2 bg-white pb-0" id="portfolio">
         <div class="bg-custom novi-bg novi-bg-img bg-gray-200"></div>
         <div class="container">
@@ -404,7 +419,7 @@ use yii\widgets\ActiveForm;
             </div>
         </div>
         <div class="container container-custom-right">
-            <!-- Owl Carousel-->
+
             <div class="owl-carousel owl-carousel-classic" data-items="1" data-sm-items="1" data-md-items="2"
                  data-lg-items="3" data-xl-items="3" data-xxl-items="3" data-nav="true" data-loop="true"
                  data-margin="30" data-mouse-drag="false" data-center="true" data-autoplay="true">
@@ -510,7 +525,8 @@ use yii\widgets\ActiveForm;
             </div>
         </div>
     </section>
-
+-->
+<!--
     <section class="section section-sm bg-gray-900 novi-bg novi-bg-img pb-0 text-center" id="contacts"
              style="background-image: url(/design/images/bg-price-1920x1128.png)">
         <div class="container">
@@ -594,12 +610,13 @@ use yii\widgets\ActiveForm;
             </div>
         </div>
     </section>
-
+-->
+<!--
     <section class="section section-xs bg-gray-200">
         <div class="container">
             <div class="row row-50 justify-content-between align-items-center">
                 <div class="col-xl-6 col-lg-6 wow fadeInLeft" data-wow-delay=".5s">
-                    <!-- Owl Carousel-->
+
                     <div class="owl-carousel owl-carousel-modern" data-items="1" data-dots="true" data-stage-padding="0"
                          data-loop="false" data-margin="0" data-mouse-drag="false" data-autoplay="true">
                         <div class="quote-modern">
@@ -674,7 +691,8 @@ use yii\widgets\ActiveForm;
             </div>
         </div>
     </section>
-
+-->
+<!--
     <section>
         <a class="d-block"
                 href="https://www.templatemonster.com/landing-page-template/interia-design-one-page-creative-html-landing-page-template-75772.html"
@@ -683,8 +701,7 @@ use yii\widgets\ActiveForm;
                                      height="310"/>
         </a>
     </section>
-
-
+-->
 
 
 

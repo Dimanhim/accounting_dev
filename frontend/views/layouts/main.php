@@ -74,39 +74,12 @@ AppAsset::register($this);
     <footer class="section footer-classic bg-gray-900 novi-bg novi-bg-img"
             style="background-image: url(/design/images/bg-price-1920x1128.png)">
         <div class="container">
-            <div class="row row-30 justify-content-between">
-                <div class="col-xl-3 col-lg-3 col-sm-6">
-                    <p class="footer-classic-title">Our Address</p>
-                    <ul class="footer-classic-list">
-                        <li>2200 Clarendon Blvd., Suite 1400A Arlington, VA 22201, USA</li>
-                    </ul>
-                </div>
-                <div class="col-xl-2 col-lg-2 col-sm-6">
-                    <p class="footer-classic-title">Socials</p>
-                    <ul class="footer-classic-list">
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">YouTube</a></li>
-                    </ul>
-                </div>
-                <div class="col-xl-2 col-lg-2 col-sm-6">
-                    <p class="footer-classic-title">phone</p>
-                    <ul class="footer-classic-list">
-                        <li><a href="tel:#">1-800-901-234</a></li>
-                    </ul>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-sm-6">
-                    <p class="footer-classic-title">Email</p>
-                    <ul class="footer-classic-list">
-                        <li><a href="mailto:#">info@demolink.org</a></li>
-                    </ul>
-                </div>
+
+            <div class="footer-classic-logo-wrap">
+                <a class="brand" href="/">
+                    <img src="/design/images/logo-white.png" alt="" width="189" height="35"/>
+                </a>
             </div>
-            <div class="footer-classic-logo-wrap"><a class="brand" href="/"><img
-                            src="/design/images/logo-default-189x35.png" alt="" width="189" height="35"/></a>
-            </div>
-            <p class="rights"><span>&copy;&nbsp; </span><span class="copyright-year"></span><span>&nbsp;</span><span>Interia</span><span>. All Rights Reserved. Design by Zemez</span>
-            </p>
         </div>
     </footer>
 </div>

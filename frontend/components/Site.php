@@ -10,7 +10,7 @@ use yii\base\Component;
 class Site extends Component
 {
     // вспомогательное свойство
-    public $name = 'Тестовый сайт';
+    public $name = 'Онлайн система складского учета';
     public $h1;
     public $title;
     public $utm_source = '';

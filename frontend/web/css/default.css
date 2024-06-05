@@ -118,6 +118,9 @@ div.required label.control-label:after {
 .list-classic .unit-left {
     margin: 0 auto 30px;
 }
+.footer-classic-logo-wrap {
+    margin-top: 0;
+}
 @media (min-width: 768px) {
     .data-dots-custom.active::after {
         right: 100px;
