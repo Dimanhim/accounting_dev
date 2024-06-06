@@ -42,6 +42,9 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
+
+<?= $this->render('counters') ?>
+
 <div class="ie-panel">
     <a href="https://windows.microsoft.com/en-US/internet-explorer/">
         <img src="/design/images/ie8-panel/warning_bar_0000_us.jpg"
