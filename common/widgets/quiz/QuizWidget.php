@@ -17,7 +17,7 @@ class QuizWidget extends Widget
     public $print = false;
 
 
-    private $_session_id = null;
+    public $_session_id = null;
     private $_session = null;
     private $_quiz_model = null;
     private $_quiz_data  = null;            // вопросы/ответы квиза
@@ -232,8 +232,9 @@ class QuizWidget extends Widget
             $this->setSessionId();
         }
 
-        $this->_session_id = $this->getSessionId();
-
+        if(!$this->_session_id) {
+            $this->_session_id = $this->getSessionId();
+        }
         $this->setUserStructure();
     }
     public function setSessionId()

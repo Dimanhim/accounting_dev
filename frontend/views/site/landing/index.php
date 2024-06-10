@@ -16,8 +16,11 @@ use yii\widgets\ActiveForm;
                  data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px" data-xl-stick-up-offset="46px"
                  data-xxl-stick-up-offset="46px" data-lg-stick-up="true" data-xl-stick-up="true"
                  data-xxl-stick-up="true">
+
+                <!--
                 <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1"
                      data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+                     -->
                 <div class="rd-navbar-main-outer">
                     <div class="rd-navbar-main">
                         <div class="rd-navbar-nav-wrap">
@@ -45,6 +48,7 @@ use yii\widgets\ActiveForm;
                                 </a>
                             </div>
                         </div>
+
                         <div class="rd-navbar-collapse">
                             <ul class="list-inline list-inline-md">
                                 <li><a class="link-bd-btm" href="mailto:#"></a></li>
@@ -52,6 +56,7 @@ use yii\widgets\ActiveForm;
                                 <li><a class="link-bd-btm " href="#"></a></li>
                             </ul>
                         </div>
+
                     </div>
                 </div>
             </nav>
@@ -236,7 +241,7 @@ use yii\widgets\ActiveForm;
                     <div class="kraken-range"></div>
                     <button class="button button-icon button-icon-right button-primary button-shadow"
                             data-custom-toggle=".owl-pagination-custom" data-custom-toggle-hide-on-blur="true"><span
-                                class="icon mdi mdi-chevron-down"></span>Budget
+                                class="icon mdi mdi-chevron-down"></span>Бюджет
                     </button>
                     <div class="owl-pagination-custom" id="owl-pagination-custom">
                         <div class="data-dots-custom" data-owl-item="0"><span>до 1000 руб./мес.</span></div>
@@ -254,26 +259,22 @@ use yii\widgets\ActiveForm;
                     </div>
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="#">
+
                                 <img src="/design/images/shop.jpg" alt="" width="370"
                                                                 height="222"/>
-                            </a>
+
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="#">
-                                <img src="/design/images/stock.jpg" alt="" width="370"
+                            <img src="/design/images/stock.jpg" alt="" width="370"
                                                                 height="222"/>
-                            </a>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="#">
-                                <img src="/design/images/marketplace.jpg" alt="" width="370"
+                            <img src="/design/images/marketplace.jpg" alt="" width="370"
                                                                 height="222"/>
-                            </a>
                         </div>
                     </div>
                     <div class="col-xl-8 col-lg-10">
@@ -291,25 +292,26 @@ use yii\widgets\ActiveForm;
                     </div>
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="#">
+
                                 <img src="/design/images/shop.jpg" alt="" width="370"
                                                                 height="222"/>
-                            </a></div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="thumbnail">
-                            <a href="#">
-                                <img src="/design/images/stock.jpg" alt="" width="370"
-                                                                height="222"/>
-                            </a>
+
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="#">
+
+                                <img src="/design/images/stock.jpg" alt="" width="370"
+                                                                height="222"/>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+
                                 <img src="/design/images/marketplace.jpg" alt="" width="370"
                                                                 height="222"/>
-                            </a>
+
                         </div>
                     </div>
                     <div class="col-xl-8 col-lg-10">
@@ -327,26 +329,26 @@ use yii\widgets\ActiveForm;
                     </div>
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="#">
+
                                 <img src="/design/images/shop.jpg" alt="" width="370"
                                                                 height="222"/>
-                            </a>
+
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="#">
+
                                 <img src="/design/images/stock.jpg" alt="" width="370"
                                                                 height="222"/>
-                            </a>
+
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="#">
+
                                 <img src="/design/images/marketplace.jpg" alt="" width="370"
                                                                 height="222"/>
-                            </a>
+
                         </div>
                     </div>
                     <div class="col-xl-8 col-lg-10">
@@ -365,26 +367,26 @@ use yii\widgets\ActiveForm;
                     </div>
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="#">
+
                                 <img src="/design/images/shop.jpg" alt="" width="370"
                                                                 height="222"/>
-                            </a>
+
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="#">
+
                                 <img src="/design/images/stock.jpg" alt="" width="370"
                                                                 height="222"/>
-                            </a>
+
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="#">
+
                                 <img src="/design/images/marketplace.jpg" alt="" width="370"
                                                                 height="222"/>
-                            </a>
+
                         </div>
                     </div>
                     <div class="col-xl-8 col-lg-10">

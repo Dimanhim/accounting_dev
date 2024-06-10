@@ -65,4 +65,30 @@ class Quiz extends BaseModel
             'result' => 'Result',
         ]);
     }
+
+    public function getResultHtml()
+    {
+        $str = '';
+        if($this->result and ($results = json_decode($this->result, true))) {
+            $str .= $this->getResultString($results);
+        }
+        return $str;
+    }
+
+    public function getResultString($results)
+    {
+        $str = '<ul>';
+        foreach($results as $resultName => $resultValues) {
+            if(!is_array($resultValues)) {
+                $str .= '<li>';
+                $str .= $resultName . ' = ' . $resultValues;
+                $str .= '</li>';
+            }
+            else {
+                $str .= $this->getResultString($resultValues);
+            }
+        }
+        $str .= '</ul>';
+        return $str;
+    }
 }

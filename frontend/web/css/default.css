@@ -121,10 +121,63 @@ div.required label.control-label:after {
 .footer-classic-logo-wrap {
     margin-top: 0;
 }
+
 @media (min-width: 768px) {
     .data-dots-custom.active::after {
         right: 100px;
     }
 }
+
+
+@media (max-width: 1199px) {
+    .rd-navbar-collapse {
+        visibility: hidden;
+    }
+    .block-offer {
+        margin-top: 40px;
+    }
+    .box-custom-1-main {
+        height: 534px;
+    }
+}
+@media (max-width: 768px) {
+    h2 {
+        font-size: 30px;
+    }
+    .box-custom-1-main {
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center;
+    }
+    .block-offer {
+        padding-right: 18px;
+    }
+    .quiz-header, .quiz-body label {
+        font-size: 18px;
+    }
+    .quiz-container {
+        padding: 20px;
+    }
+    .advantages ul.list li {
+        width: 50%;
+    }
+}
+
+@media (max-width: 400px) {
+    .box-custom-1-main {
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center;
+    }
+    .block-offer {
+        padding-right: 15px;
+        margin-left: 15px;
+    }
+    .advantages ul.list li {
+        width: 100%;
+    }
+}
+
+
 
 
