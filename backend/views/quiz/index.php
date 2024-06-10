@@ -30,6 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     //return $data->resultHtml;
                 }
             ],
+            'created_at:datetime',
             [
                 'class' => ActionColumn::className(),
                 'template' => '{view} {delete}',
