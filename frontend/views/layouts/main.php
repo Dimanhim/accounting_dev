@@ -23,6 +23,7 @@ AppAsset::register($this);
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <meta name="yandex-verification" content="8ff6d195e2a18764" />
     <?php $this->head() ?>
     <style>
         .ie-panel{
@@ -43,7 +44,7 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<?= $this->render('counters') ?>
+<?= $this->render('//layouts/counters') ?>
 
 <div class="ie-panel">
     <a href="https://windows.microsoft.com/en-US/internet-explorer/">
