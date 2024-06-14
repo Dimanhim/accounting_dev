@@ -39,12 +39,13 @@ class QuizSearch extends Quiz
      */
     public function search($params)
     {
-        $query = Quiz::findModels();
+        $query = Quiz::find();
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => ['defaultOrder' => ['created_at' => SORT_DESC]],
         ]);
 
         $this->load($params);
